@@ -18,10 +18,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1E40AF',
-                        secondary: '#3B82F6',
-                        accent: '#10B981',
-                        dark: '#1F2937',
+                        primary: '#1E3A8A',
+                        secondary: '#2563EB',
+                        accent: '#059669',
+                        dark: '#111827',
                         light: '#F9FAFB'
                     },
                     fontFamily: {
@@ -40,7 +40,7 @@
             overflow-x: hidden;
         }
         .gradient-bg { 
-            background: linear-gradient(135deg, #1E40AF, #3B82F6, #10B981);
+            background: linear-gradient(135deg, #1E3A8A, #2563EB, #059669);
             background-size: 400% 400%;
             animation: gradientShift 8s ease infinite;
         }
@@ -57,9 +57,9 @@
             animation: pulse 2s infinite; 
         }
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
         }
         .stats-counter {
             font-family: 'Fredoka One', cursive;
@@ -87,8 +87,8 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
         @keyframes glow {
-            from { box-shadow: 0 0 10px #3B82F6; }
-            to { box-shadow: 0 0 20px #3B82F6, 0 0 30px #3B82F6; }
+            from { box-shadow: 0 0 10px #2563EB; }
+            to { box-shadow: 0 0 20px #2563EB, 0 0 30px #2563EB; }
         }
         .dark-mode {
             background-color: #1a202c;
@@ -104,7 +104,7 @@
             background-color: #4a5568;
         }
         .hero-text-shimmer {
-            background: linear-gradient(90deg, #1E40AF, #3B82F6, #10B981, #1E40AF);
+            background: linear-gradient(90deg, #1E3A8A, #2563EB, #059669, #1E3A8A);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -141,7 +141,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #3B82F6, #10B981);
+            background: linear-gradient(45deg, #2563EB, #059669);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -211,10 +211,10 @@
             border: 2px solid transparent;
         }
         .trading-card:hover {
-            border-color: #3B82F6;
+            border-color: #2563EB;
         }
         .profit {
-            color: #10B981;
+            color: #059669;
         }
         .loss {
             color: #EF4444;
@@ -224,31 +224,73 @@
             border: 2px solid transparent;
         }
         .plan-card:hover {
-            border-color: #10B981;
+            border-color: #059669;
             transform: scale(1.02);
         }
         .active-plan {
-            border-color: #10B981;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            border-color: #059669;
+            box-shadow: 0 0 15px rgba(5, 150, 105, 0.3);
         }
         .ai-bot-active {
-            border-left: 4px solid #10B981;
+            border-left: 4px solid #059669;
         }
         .trade-success {
-            background: linear-gradient(45deg, #10B981, #34D399);
+            background: linear-gradient(45deg, #059669, #10B981);
             color: white;
         }
         .trade-pending {
-            background: linear-gradient(45deg, #F59E0B, #FBBF24);
+            background: linear-gradient(45deg, #D97706, #F59E0B);
             color: white;
         }
         .trade-failed {
-            background: linear-gradient(45deg, #EF4444, #F87171);
+            background: linear-gradient(45deg, #DC2626, #EF4444);
             color: white;
         }
         .chart-container {
             height: 500px;
             width: 100%;
+        }
+        .balance-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .balance-small {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .admin-dot {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            background: #EF4444;
+            border-radius: 50%;
+            z-index: 100;
+        }
+        .back-arrow {
+            background: #1E3A8A;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .back-arrow:hover {
+            background: #2563EB;
+            transform: scale(1.1);
+        }
+        .signal-bullish {
+            background: linear-gradient(45deg, #059669, #10B981);
+            color: white;
+        }
+        .signal-bearish {
+            background: linear-gradient(45deg, #DC2626, #EF4444);
+            color: white;
         }
     </style>
 </head>
@@ -261,24 +303,26 @@
         </button>
     </div>
 
+    <!-- Admin Login Dot -->
+    <div class="admin-dot" onclick="showAdminLogin()" title="Admin Login"></div>
+
     <!-- Landing Page (Before Login) -->
     <div id="landingPage" class="min-h-screen flex flex-col relative overflow-hidden">
         <!-- Particle Background -->
         <div id="particles" class="absolute inset-0 pointer-events-none"></div>
 
-        <!-- Navbar -->
+        <!-- Professional Navbar -->
         <nav class="bg-white shadow-lg sticky top-0 z-50 dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <i class="fas fa-chart-line text-primary text-3xl mr-2 floating"></i>
+                        <i class="fas fa-chart-line text-primary text-3xl mr-2"></i>
                         <h1 class="text-2xl font-heading text-primary dark:text-white">Alpha Area Trading</h1>
                     </div>
                     <div class="flex space-x-3">
-                        <button onclick="showLogin()" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-secondary transition font-semibold text-sm">Login</button>
-                        <button onclick="showSignup()" class="bg-secondary text-white px-5 py-2 rounded-full hover:bg-primary transition font-semibold text-sm">Sign Up</button>
-                        <button onclick="showAdminLogin()" class="bg-accent text-white px-5 py-2 rounded-full font-semibold hover:bg-secondary transition text-sm">Admin</button>
-                        <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="bg-green-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-green-600 transition text-sm flex items-center">
+                        <button onclick="showLogin()" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-secondary transition font-semibold text-sm">Login</button>
+                        <button onclick="showSignup()" class="bg-secondary text-white px-5 py-2 rounded-lg hover:bg-primary transition font-semibold text-sm">Sign Up</button>
+                        <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="bg-green-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-green-600 transition text-sm flex items-center">
                             <i class="fab fa-whatsapp mr-2"></i> Support
                         </a>
                     </div>
@@ -286,10 +330,10 @@
             </div>
         </nav>
 
-        <!-- Enhanced Hero Section -->
+        <!-- Professional Hero Section -->
         <section class="gradient-bg flex-1 flex items-center justify-center py-12 px-4 relative">
             <div class="text-center text-white max-w-6xl w-full relative z-10">
-                <!-- Trading Images -->
+                <!-- Professional Trading Images -->
                 <div class="flex justify-center items-center mb-8 space-x-4">
                     <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=150&h=150&fit=crop&crop=center" 
                          alt="Trading Charts" class="w-24 h-24 md:w-32 md:h-32 rounded-xl hero-image floating" style="animation-delay: 0s;">
@@ -297,8 +341,6 @@
                          alt="Crypto Trading" class="w-24 h-24 md:w-32 md:h-32 rounded-xl hero-image hero-card-float" style="animation-delay: 1s;">
                     <img src="https://images.unsplash.com/photo-1642790554595-bf34f7625d18?w=150&h=150&fit=crop&crop=center" 
                          alt="Forex Trading" class="w-24 h-24 md:w-32 md:h-32 rounded-xl hero-image floating" style="animation-delay: 2s;">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=150&h=150&fit=crop&crop=center" 
-                         alt="Stock Trading" class="w-24 h-24 md:w-32 md:h-32 rounded-xl hero-image hero-card-float" style="animation-delay: 0.5s;">
                 </div>
 
                 <h1 class="text-4xl md:text-6xl font-heading mb-6 hero-text-shimmer">Professional Trading with AI Technology</h1>
@@ -344,16 +386,16 @@
                     </div>
                 </div>
 
-                <button onclick="showSignup()" class="bg-white text-primary px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition transform pulse mr-4">
+                <button onclick="showSignup()" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-bold hover:scale-105 transition transform pulse mr-4">
                     <i class="fas fa-play mr-2"></i>Start Trading & Get Bonus!
                 </button>
-                <button onclick="showLogin()" class="bg-secondary text-white px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition transform pulse">
+                <button onclick="showLogin()" class="bg-secondary text-white px-8 py-3 rounded-lg text-lg font-bold hover:scale-105 transition transform pulse">
                     <i class="fas fa-sign-in-alt mr-2"></i>Quick Login
                 </button>
 
                 <!-- Telegram Community Button -->
                 <div class="mt-6">
-                    <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="bg-blue-500 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition inline-flex items-center">
+                    <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition inline-flex items-center">
                         <i class="fab fa-telegram mr-2 text-xl"></i>Join Our Telegram Community
                     </a>
                 </div>
@@ -370,7 +412,7 @@
             </div>
         </section>
 
-        <!-- Enhanced Features Section -->
+        <!-- Professional Features Section -->
         <section class="py-16 bg-white dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-4xl font-heading text-center mb-12 text-primary dark:text-white hero-text-shimmer">Why Choose Alpha Area Trading?</h2>
@@ -399,31 +441,26 @@
             </div>
         </section>
 
-        <!-- Quick Start Guide Section -->
-        <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <!-- Policies Section -->
+        <section class="py-16 bg-gray-100 dark:bg-gray-900">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-heading text-center mb-12">🚀 Get Started in 3 Easy Steps</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 bg-white bg-opacity-20 rounded-2xl">
-                        <div class="w-20 h-20 bg-white bg-opacity-30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user-plus text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">1. Sign Up</h3>
-                        <p class="opacity-90">Create your free account in seconds.</p>
+                <h2 class="text-4xl font-heading text-center mb-12 text-primary dark:text-white">Company Policies</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
+                        <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Return Policy</h3>
+                        <p class="text-gray-600 dark:text-gray-300">We offer a 7-day return policy on all trading plans. Terms and conditions apply.</p>
                     </div>
-                    <div class="text-center p-6 bg-white bg-opacity-20 rounded-2xl">
-                        <div class="w-20 h-20 bg-white bg-opacity-30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-rupee-sign text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">2. Deposit</h3>
-                        <p class="opacity-90">Add funds via UPI/USDT & get instant bonus.</p>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
+                        <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Refund Policy</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Full refunds available within 24 hours of purchase. Contact support for assistance.</p>
                     </div>
-                    <div class="text-center p-6 bg-white bg-opacity-20 rounded-2xl">
-                        <div class="w-20 h-20 bg-white bg-opacity-30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-chart-line text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">3. Trade & Earn</h3>
-                        <p class="opacity-90">Use AI bot or manual trading for profits!</p>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
+                        <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Privacy Policy</h3>
+                        <p class="text-gray-600 dark:text-gray-300">We protect your data with industry-standard security measures and encryption.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
+                        <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Disclaimer</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Trading involves risk. Past performance doesn't guarantee future results.</p>
                     </div>
                 </div>
             </div>
@@ -437,7 +474,7 @@
 
     <!-- Signup Modal -->
     <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Create Account</h2>
                 <button onclick="closeModals()" class="text-2xl dark:text-white">×</button>
@@ -452,12 +489,16 @@
                     Sign Up Free
                 </button>
             </form>
+            <!-- Admin Login Option (Small) -->
+            <div class="mt-4 text-center">
+                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-primary transition">Admin Login</button>
+            </div>
         </div>
     </div>
 
     <!-- Login Modal -->
     <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Welcome Back!</h2>
                 <button onclick="closeModals()" class="text-2xl dark:text-white">×</button>
@@ -469,12 +510,16 @@
                     Login Now
                 </button>
             </form>
+            <!-- Admin Login Option (Small) -->
+            <div class="mt-4 text-center">
+                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-primary transition">Admin Login</button>
+            </div>
         </div>
     </div>
 
     <!-- Admin Login Modal -->
     <div id="adminLoginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Admin Login</h2>
                 <button onclick="closeAdminModal()" class="text-2xl dark:text-white">×</button>
@@ -502,7 +547,7 @@
                     <div class="flex items-center space-x-6">
                         <!-- Daily Login Bonus -->
                         <div class="hidden md:block">
-                            <button onclick="claimDailyBonus()" class="bg-yellow-500 text-dark px-4 py-2 rounded-full font-bold hover:bg-yellow-600 transition">
+                            <button onclick="claimDailyBonus()" class="bg-yellow-500 text-dark px-4 py-2 rounded-lg font-bold hover:bg-yellow-600 transition">
                                 <i class="fas fa-gift mr-1"></i> Daily Bonus
                             </button>
                         </div>
@@ -520,6 +565,7 @@
                                 <a href="#" onclick="showSection('withdraw')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-money-bill-wave mr-2"></i> Withdraw</a>
                                 <a href="#" onclick="showSection('history')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-history mr-2"></i> History</a>
                                 <a href="#" onclick="showSection('referral')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-user-plus mr-2"></i> Refer & Earn</a>
+                                <a href="#" onclick="showSection('exchange')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-exchange-alt mr-2"></i> Exchange Currency</a>
                                 <a href="#" onclick="showSection('aiBot')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-robot mr-2"></i> AI Bot Trading</a>
                                 <a href="#" onclick="showSection('chartAnalysis')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-chart-bar mr-2"></i> Chart Analysis</a>
                                 <a href="#" onclick="showSection('staking')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-coins mr-2"></i> Staking Plans</a>
@@ -555,7 +601,7 @@
             </div>
         </div>
 
-        <!-- User Info Card -->
+        <!-- User Info Card with Both Balances -->
         <div class="max-w-7xl mx-auto px-4 py-8">
             <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center">
@@ -565,8 +611,15 @@
                     </div>
                     <div class="text-right">
                         <p class="text-sm opacity-90">Wallet Balance</p>
-                        <p class="text-4xl font-bold" id="walletBalance">₹0</p>
-                        <button onclick="showSection('deposit')" class="mt-2 bg-white text-primary px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition">
+                        <div class="flex items-baseline justify-end">
+                            <p class="balance-display" id="walletBalanceINR">₹0</p>
+                            <p class="balance-small ml-2" id="walletBalanceINRDecimal">.00</p>
+                        </div>
+                        <div class="flex items-baseline justify-end">
+                            <p class="balance-display" id="walletBalanceUSDT">$0</p>
+                            <p class="balance-small ml-2" id="walletBalanceUSDTDecimal">.00</p>
+                        </div>
+                        <button onclick="showSection('deposit')" class="mt-2 bg-white text-primary px-6 py-2 rounded-lg text-sm font-bold hover:scale-105 transition">
                             Add Money
                         </button>
                     </div>
@@ -574,7 +627,7 @@
             </div>
         </div>
 
-        <!-- Live Trading Stats -->
+        <!-- Live Trading Stats (Randomized) -->
         <div class="max-w-7xl mx-auto px-4 py-6">
             <h2 class="text-3xl font-heading text-center mb-6 text-primary dark:text-white">📈 Live Trading Stats</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -583,24 +636,24 @@
                         <span class="font-bold">Successful Trades</span>
                         <span class="text-sm">Today</span>
                     </div>
-                    <p class="mt-2 text-2xl">1,247</p>
-                    <p class="text-sm">+₹2,89,456 Profit</p>
+                    <p class="mt-2 text-2xl" id="successfulTradesCount">1,247</p>
+                    <p class="text-sm" id="successfulTradesProfit">+₹2,89,456 Profit</p>
                 </div>
                 <div class="trade-pending p-4 rounded-2xl text-white">
                     <div class="flex justify-between items-center">
                         <span class="font-bold">Active Trades</span>
                         <span class="text-sm">Running</span>
                     </div>
-                    <p class="mt-2 text-2xl">342</p>
-                    <p class="text-sm">₹1,23,789 in Progress</p>
+                    <p class="mt-2 text-2xl" id="activeTradesCount">342</p>
+                    <p class="text-sm" id="activeTradesProgress">₹1,23,789 in Progress</p>
                 </div>
                 <div class="trade-failed p-4 rounded-2xl text-white">
                     <div class="flex justify-between items-center">
                         <span class="font-bold">AI Bot Accuracy</span>
                         <span class="text-sm">This Week</span>
                     </div>
-                    <p class="mt-2 text-2xl">87.5%</p>
-                    <p class="text-sm">142/162 Profitable</p>
+                    <p class="mt-2 text-2xl" id="aiBotAccuracy">87.5%</p>
+                    <p class="text-sm" id="aiBotProfitable">142/162 Profitable</p>
                 </div>
             </div>
         </div>
@@ -610,12 +663,12 @@
             <h2 class="text-3xl font-heading text-center mb-8 text-primary dark:text-white">💰 Staking Plans</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Earn daily returns with our secure staking plans</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 <!-- Plan 1 -->
                 <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(1)">
                     <div class="text-center">
                         <i class="fas fa-coins text-4xl text-yellow-500 mb-4"></i>
-                        <p class="text-2xl font-bold text-primary dark:text-white">₹50 - ₹99</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white">$50 - $99</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Basic Plan</p>
                         <div class="space-y-2 mb-4">
                             <p class="text-lg font-bold text-green-600">0.1% Daily</p>
@@ -632,7 +685,7 @@
                 <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(2)">
                     <div class="text-center">
                         <i class="fas fa-gem text-4xl text-blue-500 mb-4"></i>
-                        <p class="text-2xl font-bold text-primary dark:text-white">₹100 - ₹499</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white">$100 - $499</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Silver Plan</p>
                         <div class="space-y-2 mb-4">
                             <p class="text-lg font-bold text-green-600">0.2% Daily</p>
@@ -649,7 +702,7 @@
                 <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(3)">
                     <div class="text-center">
                         <i class="fas fa-crown text-4xl text-purple-500 mb-4"></i>
-                        <p class="text-2xl font-bold text-primary dark:text-white">₹500 - ₹999</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white">$500 - $999</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Gold Plan</p>
                         <div class="space-y-2 mb-4">
                             <p class="text-lg font-bold text-green-600">0.25% Daily</p>
@@ -666,7 +719,7 @@
                 <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer active-plan" onclick="selectPlan(4)">
                     <div class="text-center">
                         <i class="fas fa-rocket text-4xl text-red-500 mb-4"></i>
-                        <p class="text-2xl font-bold text-primary dark:text-white">₹1000 - ₹4999</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white">$1000 - $4999</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Platinum Plan</p>
                         <div class="space-y-2 mb-4">
                             <p class="text-lg font-bold text-green-600">0.5% Daily</p>
@@ -683,7 +736,7 @@
                 <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(5)">
                     <div class="text-center">
                         <i class="fas fa-star text-4xl text-yellow-500 mb-4"></i>
-                        <p class="text-2xl font-bold text-primary dark:text-white">₹5000+</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white">$5000+</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">VIP Plan</p>
                         <div class="space-y-2 mb-4">
                             <p class="text-lg font-bold text-green-600">1% Daily</p>
@@ -712,9 +765,9 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">🤖 AI Bot Trading</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
@@ -732,17 +785,22 @@
                             <h3 class="text-xl font-bold text-primary dark:text-white mb-4">AI Bot Controls</h3>
                             <div class="space-y-4">
                                 <div>
-                                    <label class="block text-sm font-medium dark:text-gray-300 mb-2">Risk Level</label>
-                                    <input type="range" min="1" max="10" value="5" class="w-full" id="riskLevel">
-                                    <div class="flex justify-between text-xs text-gray-600 dark:text-gray-400">
-                                        <span>Low Risk</span>
-                                        <span>High Risk</span>
-                                    </div>
+                                    <label class="block text-sm font-medium dark:text-gray-300 mb-2">Risk Level: <span id="riskPercent">50%</span></label>
+                                    <input type="range" min="1" max="10" value="5" class="w-full" id="riskLevel" oninput="updateRiskPercent(this.value)">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium dark:text-gray-300 mb-2">Currency</label>
+                                    <select id="aiCurrency" class="w-full p-3 border rounded-xl dark:bg-gray-600 dark:text-white" onchange="updateAIBalance()">
+                                        <option value="INR">INR</option>
+                                        <option value="USDT">USDT</option>
+                                    </select>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-sm font-medium dark:text-gray-300 mb-2">Investment Amount</label>
-                                    <input type="number" id="aiInvestment" placeholder="Enter amount" class="w-full p-3 border rounded-xl dark:bg-gray-600 dark:text-white" min="10">
+                                    <input type="number" id="aiInvestment" placeholder="Enter amount" class="w-full p-3 border rounded-xl dark:bg-gray-600 dark:text-white" min="10" oninput="updateAIBalance()">
+                                    <p class="text-xs text-gray-500 mt-1" id="aiBalanceDisplay">Available: ₹0</p>
                                 </div>
                                 
                                 <div class="grid grid-cols-2 gap-2">
@@ -756,13 +814,14 @@
                                 
                                 <div class="bg-primary text-white p-4 rounded-xl">
                                     <p class="text-sm">AI Bot Status: <span id="aiBotStatus" class="font-bold">Inactive</span></p>
+                                    <p class="text-sm mt-2" id="aiActiveAmount">No active investment</p>
                                     <p class="text-sm mt-2">Current Profit: <span id="aiCurrentProfit" class="font-bold">₹0</span></p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Recent AI Trades</h3>
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your AI Trades</h3>
                             <div id="aiTradeHistory" class="space-y-3 max-h-60 overflow-y-auto">
                                 <!-- AI trade history will be loaded here -->
                                 <p class="text-center text-gray-500 dark:text-gray-400">No AI trades yet</p>
@@ -778,9 +837,9 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">📊 Chart Analysis</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 
                 <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl mb-6">
@@ -796,45 +855,78 @@
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Trading Signals</h3>
+                    <div id="tradingSignals" class="space-y-3">
+                        <!-- Trading signals will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exchange Currency Section -->
+        <div id="exchangeSection" class="hidden max-w-4xl mx-auto px-4 py-10">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-heading text-primary dark:text-white">💱 Exchange Currency</h2>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Trading Signals</h3>
-                        <div id="tradingSignals" class="space-y-3">
-                            <!-- Trading signals will be loaded here -->
-                            <div class="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
-                                <p class="font-bold text-green-800 dark:text-green-200">BTC/USDT: BUY</p>
-                                <p class="text-sm text-green-700 dark:text-green-300">Strong bullish momentum detected</p>
+                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR to USDT</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium dark:text-gray-300 mb-2">Amount in INR</label>
+                                <input type="number" id="inrToUsdt" placeholder="Enter INR amount" class="w-full p-4 border-2 border-secondary rounded-xl dark:bg-gray-600 dark:text-white" min="500">
+                                <p class="text-xs text-gray-500 mt-1">Minimum: ₹500</p>
                             </div>
-                            <div class="p-3 bg-red-100 dark:bg-red-900 rounded-lg">
-                                <p class="font-bold text-red-800 dark:text-red-200">ETH/USDT: SELL</p>
-                                <p class="text-sm text-red-700 dark:text-red-300">Resistance level approaching</p>
+                            <div class="bg-primary text-white p-4 rounded-xl">
+                                <p class="text-sm">You will receive: <span id="usdtReceived" class="font-bold">0.00 USDT</span></p>
+                                <p class="text-xs mt-1">Exchange rate: 1 USDT = ₹88</p>
                             </div>
+                            <button onclick="convertINRtoUSDT()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
+                                Convert to USDT
+                            </button>
                         </div>
                     </div>
                     
                     <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Market Overview</h3>
-                        <div id="marketOverview" class="space-y-3">
-                            <!-- Market overview will be loaded here -->
-                            <div class="flex justify-between items-center p-3 bg-white dark:bg-gray-600 rounded-lg">
-                                <div>
-                                    <p class="font-bold dark:text-white">BTC/USDT</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Bitcoin</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="font-bold dark:text-white">$42,156.32</p>
-                                    <p class="text-sm text-green-600">+2.34%</p>
-                                </div>
+                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT to INR</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium dark:text-gray-300 mb-2">Amount in USDT</label>
+                                <input type="number" id="usdtToInr" placeholder="Enter USDT amount" class="w-full p-4 border-2 border-secondary rounded-xl dark:bg-gray-600 dark:text-white" min="10">
+                                <p class="text-xs text-gray-500 mt-1">Minimum: 10 USDT</p>
                             </div>
-                            <div class="flex justify-between items-center p-3 bg-white dark:bg-gray-600 rounded-lg">
-                                <div>
-                                    <p class="font-bold dark:text-white">ETH/USDT</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Ethereum</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="font-bold dark:text-white">$2,856.41</p>
-                                    <p class="text-sm text-red-600">-1.23%</p>
-                                </div>
+                            <div class="bg-primary text-white p-4 rounded-xl">
+                                <p class="text-sm">You will receive: <span id="inrReceived" class="font-bold">₹0.00</span></p>
+                                <p class="text-xs mt-1">Exchange rate: 1 USDT = ₹88</p>
+                            </div>
+                            <button onclick="convertUSDTtoINR()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
+                                Convert to INR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="exchangeINRBalance">₹0</p>
+                                <p class="text-lg ml-1 opacity-80" id="exchangeINRDecimal">.00</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="exchangeUSDTBalance">$0</p>
+                                <p class="text-lg ml-1 opacity-80" id="exchangeUSDTDecimal">.00</p>
                             </div>
                         </div>
                     </div>
@@ -847,9 +939,9 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Your Profile</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 <div class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
@@ -871,7 +963,8 @@
                         <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
                             <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Account Stats</h3>
                             <div class="space-y-3 dark:text-gray-300">
-                                <p><strong>Wallet Balance:</strong> ₹<span id="profileBalance">0</span></p>
+                                <p><strong>INR Balance:</strong> ₹<span id="profileBalanceINR">0</span></p>
+                                <p><strong>USDT Balance:</strong> $<span id="profileBalanceUSDT">0</span></p>
                                 <p><strong>Total Investments:</strong> <span id="profileInvestments">0</span></p>
                                 <p><strong>Total Profits:</strong> ₹<span id="profileProfits">0</span></p>
                                 <p><strong>Total Withdrawals:</strong> ₹<span id="profileWithdrawals">0</span></p>
@@ -889,9 +982,9 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Your History</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 <div class="space-y-6">
                     <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
@@ -923,9 +1016,9 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Refer & Earn</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
@@ -979,53 +1072,85 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Deposit Money</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+                
+                <!-- Currency Selection -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Select Currency</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button id="depositINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-secondary transition" onclick="showDepositMethod('INR')">
+                            Deposit INR
+                        </button>
+                        <button id="depositUSDTBtn" class="bg-gray-300 text-gray-700 py-4 rounded-xl font-bold text-lg hover:bg-gray-400 transition" onclick="showDepositMethod('USDT')">
+                            Deposit USDT
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- INR Deposit -->
+                <div id="inrDeposit" class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Deposit</h3>
+                    <div class="mb-4 p-4 bg-yellow-50 dark:bg-yellow-900 rounded-xl border border-yellow-200 dark:border-yellow-700">
+                        <p class="text-center font-bold text-lg dark:text-white">Send payment to: <span class="text-primary" id="currentUPI">millnerkaptan01@fam</span></p>
+                        <p class="text-center text-sm mt-2 dark:text-gray-300">After payment, send screenshot to confirm</p>
+                        <div class="flex justify-center space-x-2 mt-3">
+                            <button onclick="copyUPI()" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-copy mr-1"></i>Copy UPI
+                            </button>
+                        </div>
+                    </div>
+                    <input type="number" id="depositAmountINR" placeholder="Enter Amount (min ₹500)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="500">
+                    <button onclick="sendINRDepositToWhatsApp()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                        Send Request on WhatsApp
                     </button>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <!-- INR Deposit -->
-                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Deposit</h3>
-                        <div class="mb-4 p-4 bg-yellow-50 dark:bg-yellow-900 rounded-xl border border-yellow-200 dark:border-yellow-700">
-                            <p class="text-center font-bold text-lg dark:text-white">Send payment to: <span class="text-primary" id="currentUPI">millnerkaptan01@fam</span></p>
-                            <p class="text-center text-sm mt-2 dark:text-gray-300">After payment, send screenshot to confirm</p>
-                            <div class="flex justify-center space-x-2 mt-3">
-                                <button onclick="copyUPI()" class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition">
-                                    <i class="fas fa-copy mr-1"></i>Copy UPI
-                                </button>
-                            </div>
+                <!-- USDT Deposit -->
+                <div id="usdtDeposit" class="bg-light dark:bg-gray-700 p-6 rounded-2xl hidden">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Deposit</h3>
+                    <div class="mb-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-xl border border-blue-200 dark:border-blue-700">
+                        <p class="text-center font-bold text-lg dark:text-white">Send USDT to:</p>
+                        <p class="text-center text-sm mt-2 dark:text-gray-300 font-mono">BSC BNB Smart Chain (Bep 20)</p>
+                        <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">0x8e57d705f1b58ceda77c91df6ac80aac5c2a83df</p>
+                        <p class="text-center text-sm mt-2 dark:text-gray-300">OR</p>
+                        <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">TRC 20: TN9DDuzXnXirgAAS4mRe8VFQ6VxuVUQmJc</p>
+                        <p class="text-center text-xs mt-2 dark:text-gray-300 text-red-500">Minimum 10 USDT, otherwise deposit not received</p>
+                        <div class="flex justify-center space-x-2 mt-3">
+                            <button onclick="copyUSDTAddress('bsc')" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-copy mr-1"></i>Copy BSC
+                            </button>
+                            <button onclick="copyUSDTAddress('trc')" class="bg-purple-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-purple-600 transition">
+                                <i class="fas fa-copy mr-1"></i>Copy TRC
+                            </button>
                         </div>
-                        <input type="number" id="depositAmountINR" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="100">
-                        <button onclick="sendINRDepositToWhatsApp()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
-                            Send Request on WhatsApp
-                        </button>
                     </div>
-                    
-                    <!-- USDT Deposit -->
-                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Deposit</h3>
-                        <div class="mb-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-xl border border-blue-200 dark:border-blue-700">
-                            <p class="text-center font-bold text-lg dark:text-white">Send USDT to:</p>
-                            <p class="text-center text-sm mt-2 dark:text-gray-300 font-mono">BSC BNB Smart Chain (Bep 20)</p>
-                            <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">0x8e57d705f1b58ceda77c91df6ac80aac5c2a83df</p>
-                            <p class="text-center text-sm mt-2 dark:text-gray-300">OR</p>
-                            <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">TRC 20: TN9DDuzXnXirgAAS4mRe8VFQ6VxuVUQmJc</p>
-                            <p class="text-center text-xs mt-2 dark:text-gray-300 text-red-500">Minimum 10 USDT, otherwise deposit not received</p>
-                            <div class="flex justify-center space-x-2 mt-3">
-                                <button onclick="copyUSDTAddress('bsc')" class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition">
-                                    <i class="fas fa-copy mr-1"></i>Copy BSC
-                                </button>
-                                <button onclick="copyUSDTAddress('trc')" class="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-purple-600 transition">
-                                    <i class="fas fa-copy mr-1"></i>Copy TRC
-                                </button>
+                    <input type="number" id="depositAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
+                    <button onclick="sendUSDTDepositToWhatsApp()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                        Send Screenshot on WhatsApp
+                    </button>
+                </div>
+                
+                <!-- Balance Display -->
+                <div class="mt-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="depositINRBalance">₹0</p>
+                                <p class="text-lg ml-1 opacity-80" id="depositINRDecimal">.00</p>
                             </div>
                         </div>
-                        <input type="number" id="depositAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
-                        <button onclick="sendUSDTDepositToWhatsApp()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
-                            Send Screenshot on WhatsApp
-                        </button>
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="depositUSDTBalance">$0</p>
+                                <p class="text-lg ml-1 opacity-80" id="depositUSDTDecimal">.00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1036,38 +1161,70 @@
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Withdraw Money</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+                
+                <!-- Currency Selection -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Select Currency</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button id="withdrawINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-secondary transition" onclick="showWithdrawMethod('INR')">
+                            Withdraw INR
+                        </button>
+                        <button id="withdrawUSDTBtn" class="bg-gray-300 text-gray-700 py-4 rounded-xl font-bold text-lg hover:bg-gray-400 transition" onclick="showWithdrawMethod('USDT')">
+                            Withdraw USDT
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- INR Withdrawal -->
+                <div id="inrWithdraw" class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Withdrawal</h3>
+                    <input type="number" id="withdrawAmountINR" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="100">
+                    <input type="text" id="bankName" placeholder="Bank Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <input type="text" id="accHolderName" placeholder="Account Holder Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <input type="text" id="accNumber" placeholder="Account Number" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <input type="text" id="ifsc" placeholder="IFSC Code" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <button onclick="sendINRWithdrawToWhatsApp()" class="w-full bg-red-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
+                        Submit Request on WhatsApp
                     </button>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- INR Withdrawal -->
-                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Withdrawal</h3>
-                        <input type="number" id="withdrawAmountINR" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="100">
-                        <input type="text" id="bankName" placeholder="Bank Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                        <input type="text" id="accHolderName" placeholder="Account Holder Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                        <input type="text" id="accNumber" placeholder="Account Number" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                        <input type="text" id="ifsc" placeholder="IFSC Code" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                        <button onclick="sendINRWithdrawToWhatsApp()" class="w-full bg-red-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
-                            Submit Request on WhatsApp
-                        </button>
-                    </div>
-                    
-                    <!-- USDT Withdrawal -->
-                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Withdrawal</h3>
-                        <input type="number" id="withdrawAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
-                        <input type="text" id="usdtAddress" placeholder="USDT Address" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                        <select id="usdtNetwork" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
-                            <option value="bsc">BSC (BEP-20)</option>
-                            <option value="trc">TRC-20</option>
-                            <option value="erc">ERC-20</option>
-                        </select>
-                        <button onclick="sendUSDTWithdrawToWhatsApp()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
-                            Submit Request on WhatsApp
-                        </button>
+                <!-- USDT Withdrawal -->
+                <div id="usdtWithdraw" class="bg-light dark:bg-gray-700 p-6 rounded-2xl hidden">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Withdrawal</h3>
+                    <input type="number" id="withdrawAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
+                    <input type="text" id="usdtAddress" placeholder="USDT Address" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <select id="usdtNetwork" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                        <option value="bsc">BSC (BEP-20)</option>
+                        <option value="trc">TRC-20</option>
+                        <option value="erc">ERC-20</option>
+                    </select>
+                    <button onclick="sendUSDTWithdrawToWhatsApp()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
+                        Submit Request on WhatsApp
+                    </button>
+                </div>
+                
+                <!-- Balance Display -->
+                <div class="mt-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="withdrawINRBalance">₹0</p>
+                                <p class="text-lg ml-1 opacity-80" id="withdrawINRDecimal">.00</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
+                            <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
+                            <div class="flex items-baseline">
+                                <p class="text-3xl font-bold" id="withdrawUSDTBalance">$0</p>
+                                <p class="text-lg ml-1 opacity-80" id="withdrawUSDTDecimal">.00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1078,9 +1235,9 @@
             <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Admin Panel</h2>
-                    <button onclick="showSection('staking')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-                    </button>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
                 </div>
                 <div class="mb-6 p-4 bg-light dark:bg-gray-700 rounded-xl text-center">
                     <p class="text-xl font-bold dark:text-white">Total Registered Users: <span id="totalUsers">0</span></p>
@@ -1169,16 +1326,48 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="mb-2">© 2025 Alpha Area Trading. All rights reserved.</p>
-            <p class="text-sm">Trade responsibly. 18+ only.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="text-green-400 hover:text-green-300">
-                    <i class="fab fa-whatsapp text-xl"></i> Support
-                </a>
-                <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="text-blue-400 hover:text-blue-300">
-                    <i class="fab fa-telegram text-xl"></i> Telegram
-                </a>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Alpha Area Trading</h3>
+                    <p class="text-gray-400">Professional trading platform with AI technology for maximum profitability.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Policies</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Return Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-envelope mr-2"></i> support@alphaareatrading.com</p>
+                        <p><i class="fab fa-whatsapp mr-2"></i> +91 XXXXX XXXXX</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="text-green-400 hover:text-green-300">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                            <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-telegram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Alpha Area Trading. All rights reserved.</p>
+                <p class="text-sm mt-2">Trade responsibly. 18+ only.</p>
             </div>
         </div>
     </footer>
@@ -1196,6 +1385,7 @@
         let currentLanguage = 'english';
         let activeAIBots = [];
         let stakingIntervals = {};
+        let exchangeRate = 88; // 1 USDT = 88 INR
 
         // Live Stats Data - Enhanced with Trading Transactions
         const transactions = [
@@ -1253,6 +1443,10 @@
             // Update live transactions every 5 seconds
             setInterval(updateLiveTransactions, 5000);
             updateLiveTransactions();
+            
+            // Update trading stats every 30 seconds
+            setInterval(updateTradingStats, 30000);
+            updateTradingStats();
         }
 
         function updateLiveTransactions() {
@@ -1265,6 +1459,28 @@
                     <span class="text-accent font-bold text-xs">Just now</span>
                 </div>`
             ).join('');
+        }
+
+        // Update Trading Stats Randomly
+        function updateTradingStats() {
+            // Successful Trades
+            const successfulCount = Math.floor(Math.random() * 500) + 1000;
+            const successfulProfit = Math.floor(Math.random() * 200000) + 150000;
+            document.getElementById('successfulTradesCount').textContent = successfulCount.toLocaleString();
+            document.getElementById('successfulTradesProfit').textContent = `+₹${successfulProfit.toLocaleString()} Profit`;
+            
+            // Active Trades
+            const activeCount = Math.floor(Math.random() * 200) + 200;
+            const activeProgress = Math.floor(Math.random() * 100000) + 80000;
+            document.getElementById('activeTradesCount').textContent = activeCount.toLocaleString();
+            document.getElementById('activeTradesProgress').textContent = `₹${activeProgress.toLocaleString()} in Progress`;
+            
+            // AI Bot Accuracy
+            const accuracy = (Math.random() * 15 + 80).toFixed(1);
+            const profitable = Math.floor(Math.random() * 50) + 130;
+            const total = Math.floor(profitable / (accuracy / 100));
+            document.getElementById('aiBotAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('aiBotProfitable').textContent = `${profitable}/${Math.round(total)} Profitable`;
         }
 
         // New Feature: Particle Animation for Hero
@@ -1315,6 +1531,59 @@
             });
         }
 
+        // Update Balance Display with Decimals
+        function updateBalanceDisplay() {
+            if (currentUser) {
+                // INR Balance
+                const inrBalance = currentUser.balanceINR || 0;
+                const inrParts = inrBalance.toFixed(2).split('.');
+                document.getElementById('walletBalanceINR').textContent = `₹${inrParts[0]}`;
+                document.getElementById('walletBalanceINRDecimal').textContent = `.${inrParts[1]}`;
+                
+                // USDT Balance
+                const usdtBalance = currentUser.balanceUSDT || 0;
+                const usdtParts = usdtBalance.toFixed(2).split('.');
+                document.getElementById('walletBalanceUSDT').textContent = `$${usdtParts[0]}`;
+                document.getElementById('walletBalanceUSDTDecimal').textContent = `.${usdtParts[1]}`;
+                
+                // Update all other balance displays
+                updateAllBalanceDisplays();
+            }
+        }
+
+        // Update all balance displays across sections
+        function updateAllBalanceDisplays() {
+            if (currentUser) {
+                const inrBalance = currentUser.balanceINR || 0;
+                const usdtBalance = currentUser.balanceUSDT || 0;
+                
+                const inrParts = inrBalance.toFixed(2).split('.');
+                const usdtParts = usdtBalance.toFixed(2).split('.');
+                
+                // Exchange Section
+                document.getElementById('exchangeINRBalance').textContent = `₹${inrParts[0]}`;
+                document.getElementById('exchangeINRDecimal').textContent = `.${inrParts[1]}`;
+                document.getElementById('exchangeUSDTBalance').textContent = `$${usdtParts[0]}`;
+                document.getElementById('exchangeUSDTDecimal').textContent = `.${usdtParts[1]}`;
+                
+                // Deposit Section
+                document.getElementById('depositINRBalance').textContent = `₹${inrParts[0]}`;
+                document.getElementById('depositINRDecimal').textContent = `.${inrParts[1]}`;
+                document.getElementById('depositUSDTBalance').textContent = `$${usdtParts[0]}`;
+                document.getElementById('depositUSDTDecimal').textContent = `.${usdtParts[1]}`;
+                
+                // Withdraw Section
+                document.getElementById('withdrawINRBalance').textContent = `₹${inrParts[0]}`;
+                document.getElementById('withdrawINRDecimal').textContent = `.${inrParts[1]}`;
+                document.getElementById('withdrawUSDTBalance').textContent = `$${usdtParts[0]}`;
+                document.getElementById('withdrawUSDTDecimal').textContent = `.${usdtParts[1]}`;
+                
+                // Profile Section
+                document.getElementById('profileBalanceINR').textContent = inrBalance.toFixed(2);
+                document.getElementById('profileBalanceUSDT').textContent = usdtBalance.toFixed(2);
+            }
+        }
+
         // Staking Plan Functions
         function selectPlan(planId) {
             // Remove active class from all plans
@@ -1335,12 +1604,12 @@
             };
             
             const plan = planAmounts[planId];
-            const amount = prompt(`Enter investment amount (₹${plan.min} - ₹${plan.max}):`);
+            const amount = prompt(`Enter investment amount in USDT ($${plan.min} - $${plan.max}):`);
             
             if (amount && !isNaN(amount) && amount >= plan.min && amount <= plan.max) {
                 investInPlan(planId, parseFloat(amount));
             } else if (amount) {
-                alert(`Please enter a valid amount between ₹${plan.min} and ₹${plan.max}`);
+                alert(`Please enter a valid amount between $${plan.min} and $${plan.max}`);
             }
         }
 
@@ -1350,14 +1619,14 @@
                 return;
             }
             
-            if (currentUser.balance < amount) {
-                alert('Insufficient balance! Please deposit first.');
+            if ((currentUser.balanceUSDT || 0) < amount) {
+                alert('Insufficient USDT balance! Please deposit first.');
                 showSection('deposit');
                 return;
             }
             
-            // Deduct amount from balance
-            currentUser.balance -= amount;
+            // Deduct amount from USDT balance
+            currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) - amount;
             
             // Add to user's investments
             if (!currentUser.investments) currentUser.investments = [];
@@ -1365,6 +1634,7 @@
                 id: Date.now(),
                 planId: planId,
                 amount: amount,
+                currency: 'USDT',
                 date: new Date().toLocaleString(),
                 dailyReturn: calculateDailyReturn(planId, amount),
                 totalReturns: 0,
@@ -1378,6 +1648,7 @@
             currentUser.transactionHistory.unshift({
                 type: 'Investment',
                 amount: amount,
+                currency: 'USDT',
                 date: new Date().toLocaleString(),
                 note: `Plan ${planId} investment`
             });
@@ -1385,10 +1656,10 @@
             // Start staking interval for this investment
             startStakingInterval(investment.id);
             
-            updateBalance();
+            updateBalanceDisplay();
             saveUsersToCloud();
             
-            alert(`Successfully invested ₹${amount} in plan ${planId}! Daily returns will be added automatically.`);
+            alert(`Successfully invested $${amount} in plan ${planId}! Daily returns will be added automatically.`);
             loadActiveInvestments();
         }
 
@@ -1411,7 +1682,7 @@
                     const investment = currentUser.investments.find(inv => inv.id === investmentId);
                     if (investment && investment.active) {
                         const dailyReturn = investment.dailyReturn;
-                        currentUser.balance += dailyReturn;
+                        currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) + dailyReturn;
                         investment.totalReturns += dailyReturn;
                         
                         // Add transaction record
@@ -1419,11 +1690,12 @@
                         currentUser.transactionHistory.unshift({
                             type: 'Staking Return',
                             amount: dailyReturn,
+                            currency: 'USDT',
                             date: new Date().toLocaleString(),
                             note: `Daily return from investment #${investmentId}`
                         });
                         
-                        updateBalance();
+                        updateBalanceDisplay();
                         saveUsersToCloud();
                         loadActiveInvestments();
                     }
@@ -1451,11 +1723,11 @@
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <p class="font-bold dark:text-white">${planNames[inv.planId]}</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Invested: ₹${inv.amount} | Started: ${inv.date}</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Invested: $${inv.amount} | Started: ${inv.date}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="text-green-600 font-bold">+₹${inv.dailyReturn.toFixed(2)}/day</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Total: ₹${inv.totalReturns.toFixed(2)}</p>
+                                        <p class="text-green-600 font-bold">+$${inv.dailyReturn.toFixed(2)}/day</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Total: $${inv.totalReturns.toFixed(2)}</p>
                                     </div>
                                 </div>
                             </div>
@@ -1470,6 +1742,18 @@
         }
 
         // AI Bot Trading Functions
+        function updateRiskPercent(value) {
+            const percent = value * 10;
+            document.getElementById('riskPercent').textContent = `${percent}%`;
+        }
+
+        function updateAIBalance() {
+            const currency = document.getElementById('aiCurrency').value;
+            const balance = currency === 'INR' ? (currentUser.balanceINR || 0) : (currentUser.balanceUSDT || 0);
+            const symbol = currency === 'INR' ? '₹' : '$';
+            document.getElementById('aiBalanceDisplay').textContent = `Available: ${symbol}${balance.toFixed(2)}`;
+        }
+
         function startAITrading() {
             if (!currentUser) {
                 showLogin();
@@ -1477,24 +1761,32 @@
             }
             
             const investment = document.getElementById('aiInvestment').value;
+            const currency = document.getElementById('aiCurrency').value;
+            
             if (!investment || investment < 10) {
-                alert('Please enter a valid investment amount (min ₹10)');
+                alert('Please enter a valid investment amount (min 10)');
                 return;
             }
             
-            if (currentUser.balance < investment) {
-                alert('Insufficient balance! Please deposit first.');
+            const balance = currency === 'INR' ? (currentUser.balanceINR || 0) : (currentUser.balanceUSDT || 0);
+            if (balance < investment) {
+                alert(`Insufficient ${currency} balance! Please deposit first.`);
                 showSection('deposit');
                 return;
             }
             
             // Deduct investment amount
-            currentUser.balance -= parseFloat(investment);
+            if (currency === 'INR') {
+                currentUser.balanceINR = (currentUser.balanceINR || 0) - parseFloat(investment);
+            } else {
+                currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) - parseFloat(investment);
+            }
             
             // Add to AI trading
             if (!currentUser.aiTrading) currentUser.aiTrading = {};
             currentUser.aiTrading.active = true;
             currentUser.aiTrading.investment = parseFloat(investment);
+            currentUser.aiTrading.currency = currency;
             currentUser.aiTrading.startTime = new Date().toLocaleString();
             currentUser.aiTrading.profit = 0;
             currentUser.aiTrading.riskLevel = document.getElementById('riskLevel').value;
@@ -1507,15 +1799,17 @@
             currentUser.transactionHistory.unshift({
                 type: 'AI Trading Investment',
                 amount: parseFloat(investment),
+                currency: currency,
                 date: new Date().toLocaleString(),
                 note: `AI trading with risk level ${currentUser.aiTrading.riskLevel}`
             });
             
-            updateBalance();
+            updateBalanceDisplay();
             saveUsersToCloud();
             
             document.getElementById('aiBotStatus').textContent = 'Active';
             document.getElementById('aiBotStatus').className = 'font-bold text-green-600';
+            document.getElementById('aiActiveAmount').textContent = `Active with ${currency} ${investment}`;
             
             alert('AI Trading started successfully! Profits will be added automatically.');
             loadAITradeHistory();
@@ -1536,24 +1830,30 @@
             
             // Add final profit to balance
             if (currentUser.aiTrading.profit > 0) {
-                currentUser.balance += currentUser.aiTrading.profit;
+                if (currentUser.aiTrading.currency === 'INR') {
+                    currentUser.balanceINR = (currentUser.balanceINR || 0) + currentUser.aiTrading.profit;
+                } else {
+                    currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) + currentUser.aiTrading.profit;
+                }
                 
                 // Add transaction record
                 if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
                 currentUser.transactionHistory.unshift({
                     type: 'AI Trading Profit',
                     amount: currentUser.aiTrading.profit,
+                    currency: currentUser.aiTrading.currency,
                     date: new Date().toLocaleString(),
                     note: `Final profit from AI trading session`
                 });
             }
             
-            updateBalance();
+            updateBalanceDisplay();
             saveUsersToCloud();
             
             document.getElementById('aiBotStatus').textContent = 'Inactive';
             document.getElementById('aiBotStatus').className = 'font-bold text-red-600';
             document.getElementById('aiCurrentProfit').textContent = '₹0';
+            document.getElementById('aiActiveAmount').textContent = 'No active investment';
             
             alert('AI Trading stopped successfully!');
             loadAITradeHistory();
@@ -1561,28 +1861,25 @@
 
         function loadAITradeHistory() {
             const container = document.getElementById('aiTradeHistory');
-            if (currentUser && currentUser.aiTrading) {
-                // For demo, we'll create some sample trades
-                const sampleTrades = [
-                    { pair: 'BTC/USDT', action: 'BUY', amount: '0.005', profit: '+₹1250', time: '2 hours ago' },
-                    { pair: 'ETH/USDT', action: 'SELL', amount: '0.5', profit: '+₹850', time: '4 hours ago' },
-                    { pair: 'BNB/USDT', action: 'BUY', amount: '2', profit: '+₹320', time: '6 hours ago' }
-                ];
-                
-                container.innerHTML = sampleTrades.map(trade => `
-                    <div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <p class="font-bold dark:text-white">${trade.pair} - ${trade.action}</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Amount: ${trade.amount}</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-bold text-green-600">${trade.profit}</p>
-                                <p class="text-xs text-gray-600 dark:text-gray-400">${trade.time}</p>
+            if (currentUser && currentUser.aiTrading && currentUser.aiTradingHistory) {
+                if (currentUser.aiTradingHistory.length > 0) {
+                    container.innerHTML = currentUser.aiTradingHistory.map(trade => `
+                        <div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold dark:text-white">${trade.pair} - ${trade.action}</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Amount: ${trade.amount}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold ${trade.profit >= 0 ? 'text-green-600' : 'text-red-600'}">${trade.profit >= 0 ? '+' : ''}${trade.currency}${trade.profit}</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">${trade.time}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
+                } else {
+                    container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No AI trades yet</p>';
+                }
             } else {
                 container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No AI trades yet</p>';
             }
@@ -1617,97 +1914,140 @@
                 "popup_width": "1000",
                 "popup_height": "650"
             });
+            
+            // Update trading signals based on symbol
+            updateTradingSignals(symbol);
         }
 
-        // Admin AI Control Functions
-        function addAIProfit() {
-            const email = document.getElementById('adminAIUserEmail').value.trim().toLowerCase();
-            const profit = parseFloat(document.getElementById('adminAIProfit').value);
+        function updateTradingSignals(symbol) {
+            const signalsContainer = document.getElementById('tradingSignals');
+            const isBullish = Math.random() > 0.5;
             
-            if (!email || isNaN(profit)) {
-                alert('Please enter valid email and profit amount');
+            if (isBullish) {
+                signalsContainer.innerHTML = `
+                    <div class="signal-bullish p-4 rounded-lg">
+                        <p class="font-bold">${symbol}: BULLISH SIGNAL</p>
+                        <p class="text-sm mt-2">Strong upward momentum detected. Consider BUY position.</p>
+                    </div>
+                `;
+            } else {
+                signalsContainer.innerHTML = `
+                    <div class="signal-bearish p-4 rounded-lg">
+                        <p class="font-bold">${symbol}: BEARISH SIGNAL</p>
+                        <p class="text-sm mt-2">Downward trend detected. Consider SELL position.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Exchange Currency Functions
+        function convertINRtoUSDT() {
+            const inrAmount = parseFloat(document.getElementById('inrToUsdt').value);
+            if (!inrAmount || inrAmount < 500) {
+                alert('Please enter a valid INR amount (min ₹500)');
                 return;
             }
             
-            const user = users.find(u => u.email === email);
-            if (!user) {
-                alert('User not found!');
+            if ((currentUser.balanceINR || 0) < inrAmount) {
+                alert('Insufficient INR balance!');
                 return;
             }
             
-            if (!user.aiTrading) user.aiTrading = {};
-            user.aiTrading.profit = (user.aiTrading.profit || 0) + profit;
-            user.balance += profit;
+            const usdtAmount = inrAmount / exchangeRate;
+            
+            // Update balances
+            currentUser.balanceINR = (currentUser.balanceINR || 0) - inrAmount;
+            currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) + usdtAmount;
             
             // Add transaction record
-            if (!user.transactionHistory) user.transactionHistory = [];
-            user.transactionHistory.unshift({
-                type: 'AI Trading Profit (Admin)',
-                amount: profit,
+            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
+            currentUser.transactionHistory.unshift({
+                type: 'Currency Exchange',
+                amount: inrAmount,
+                currency: 'INR',
                 date: new Date().toLocaleString(),
-                note: `Admin added profit`
+                note: `Converted to $${usdtAmount.toFixed(2)} USDT`
             });
             
+            updateBalanceDisplay();
             saveUsersToCloud();
-            alert(`Added ₹${profit} AI profit to ${user.username}`);
             
-            // Clear fields
-            document.getElementById('adminAIUserEmail').value = '';
-            document.getElementById('adminAIProfit').value = '';
+            alert(`Successfully converted ₹${inrAmount} to $${usdtAmount.toFixed(2)} USDT!`);
+            document.getElementById('inrToUsdt').value = '';
+            document.getElementById('usdtReceived').textContent = `${usdtAmount.toFixed(2)} USDT`;
         }
 
-        function startAllAIBots() {
-            users.forEach(user => {
-                if (user.balance >= 10 && (!user.aiTrading || !user.aiTrading.active)) {
-                    if (!user.aiTrading) user.aiTrading = {};
-                    user.aiTrading.active = true;
-                    user.aiTrading.startTime = new Date().toLocaleString();
-                    user.aiTrading.profit = 0;
-                    user.aiTrading.riskLevel = 5;
-                    
-                    activeAIBots.push(user.email);
-                    
-                    // Add transaction record
-                    if (!user.transactionHistory) user.transactionHistory = [];
-                    user.transactionHistory.unshift({
-                        type: 'AI Trading Started (Admin)',
-                        amount: 0,
-                        date: new Date().toLocaleString(),
-                        note: `Admin started AI trading`
-                    });
-                }
+        function convertUSDTtoINR() {
+            const usdtAmount = parseFloat(document.getElementById('usdtToInr').value);
+            if (!usdtAmount || usdtAmount < 10) {
+                alert('Please enter a valid USDT amount (min 10 USDT)');
+                return;
+            }
+            
+            if ((currentUser.balanceUSDT || 0) < usdtAmount) {
+                alert('Insufficient USDT balance!');
+                return;
+            }
+            
+            const inrAmount = usdtAmount * exchangeRate;
+            
+            // Update balances
+            currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) - usdtAmount;
+            currentUser.balanceINR = (currentUser.balanceINR || 0) + inrAmount;
+            
+            // Add transaction record
+            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
+            currentUser.transactionHistory.unshift({
+                type: 'Currency Exchange',
+                amount: usdtAmount,
+                currency: 'USDT',
+                date: new Date().toLocaleString(),
+                note: `Converted to ₹${inrAmount.toFixed(2)} INR`
             });
             
+            updateBalanceDisplay();
             saveUsersToCloud();
-            alert('Started AI trading for all eligible users');
+            
+            alert(`Successfully converted $${usdtAmount} USDT to ₹${inrAmount.toFixed(2)}!`);
+            document.getElementById('usdtToInr').value = '';
+            document.getElementById('inrReceived').textContent = `₹${inrAmount.toFixed(2)}`;
         }
 
-        function stopAllAIBots() {
-            users.forEach(user => {
-                if (user.aiTrading && user.aiTrading.active) {
-                    user.aiTrading.active = false;
-                    user.aiTrading.endTime = new Date().toLocaleString();
-                    
-                    // Add final profit to balance
-                    if (user.aiTrading.profit > 0) {
-                        user.balance += user.aiTrading.profit;
-                        
-                        // Add transaction record
-                        if (!user.transactionHistory) user.transactionHistory = [];
-                        user.transactionHistory.unshift({
-                            type: 'AI Trading Profit (Admin)',
-                            amount: user.aiTrading.profit,
-                            date: new Date().toLocaleString(),
-                            note: `Final profit from AI trading (Admin stopped)`
-                        });
-                    }
-                    
-                    activeAIBots = activeAIBots.filter(email => email !== user.email);
-                }
-            });
-            
-            saveUsersToCloud();
-            alert('Stopped AI trading for all users');
+        // Deposit/Withdraw Method Selection
+        function showDepositMethod(currency) {
+            if (currency === 'INR') {
+                document.getElementById('inrDeposit').classList.remove('hidden');
+                document.getElementById('usdtDeposit').classList.add('hidden');
+                document.getElementById('depositINRBtn').classList.add('bg-primary', 'text-white');
+                document.getElementById('depositINRBtn').classList.remove('bg-gray-300', 'text-gray-700');
+                document.getElementById('depositUSDTBtn').classList.add('bg-gray-300', 'text-gray-700');
+                document.getElementById('depositUSDTBtn').classList.remove('bg-primary', 'text-white');
+            } else {
+                document.getElementById('inrDeposit').classList.add('hidden');
+                document.getElementById('usdtDeposit').classList.remove('hidden');
+                document.getElementById('depositINRBtn').classList.add('bg-gray-300', 'text-gray-700');
+                document.getElementById('depositINRBtn').classList.remove('bg-primary', 'text-white');
+                document.getElementById('depositUSDTBtn').classList.add('bg-primary', 'text-white');
+                document.getElementById('depositUSDTBtn').classList.remove('bg-gray-300', 'text-gray-700');
+            }
+        }
+
+        function showWithdrawMethod(currency) {
+            if (currency === 'INR') {
+                document.getElementById('inrWithdraw').classList.remove('hidden');
+                document.getElementById('usdtWithdraw').classList.add('hidden');
+                document.getElementById('withdrawINRBtn').classList.add('bg-primary', 'text-white');
+                document.getElementById('withdrawINRBtn').classList.remove('bg-gray-300', 'text-gray-700');
+                document.getElementById('withdrawUSDTBtn').classList.add('bg-gray-300', 'text-gray-700');
+                document.getElementById('withdrawUSDTBtn').classList.remove('bg-primary', 'text-white');
+            } else {
+                document.getElementById('inrWithdraw').classList.add('hidden');
+                document.getElementById('usdtWithdraw').classList.remove('hidden');
+                document.getElementById('withdrawINRBtn').classList.add('bg-gray-300', 'text-gray-700');
+                document.getElementById('withdrawINRBtn').classList.remove('bg-primary', 'text-white');
+                document.getElementById('withdrawUSDTBtn').classList.add('bg-primary', 'text-white');
+                document.getElementById('withdrawUSDTBtn').classList.remove('bg-gray-300', 'text-gray-700');
+            }
         }
 
         // FIXED REFERRAL SYSTEM - Only Code, No Link
@@ -1804,7 +2144,7 @@
         // Enhanced WhatsApp messages with detailed info
         function sendINRDepositToWhatsApp() {
             const amt = document.getElementById('depositAmountINR').value;
-            if (!amt || amt < 100) return alert('Enter amount ≥ ₹100');
+            if (!amt || amt < 500) return alert('Enter amount ≥ ₹500');
             
             const msg = `💳 INR DEPOSIT REQUEST 💳
 👤 User: ${currentUser.username}
@@ -1844,7 +2184,7 @@ Please send payment screenshot for confirmation.`;
         function sendINRWithdrawToWhatsApp() {
             const amt = document.getElementById('withdrawAmountINR').value;
             if (!amt || amt < 100) return alert('Minimum ₹100');
-            if (currentUser.balance < amt) return alert('Insufficient balance');
+            if ((currentUser.balanceINR || 0) < amt) return alert('Insufficient INR balance');
             
             const bankName = document.getElementById('bankName').value;
             const accHolderName = document.getElementById('accHolderName').value;
@@ -1872,7 +2212,7 @@ Please send payment screenshot for confirmation.`;
         function sendUSDTWithdrawToWhatsApp() {
             const amt = document.getElementById('withdrawAmountUSDT').value;
             if (!amt || amt < 10) return alert('Minimum 10 USDT');
-            if (currentUser.balance < amt) return alert('Insufficient balance');
+            if ((currentUser.balanceUSDT || 0) < amt) return alert('Insufficient USDT balance');
             
             const usdtAddress = document.getElementById('usdtAddress').value;
             const usdtNetwork = document.getElementById('usdtNetwork').value;
@@ -1956,7 +2296,8 @@ Please send payment screenshot for confirmation.`;
                 username: email.split('@')[0], 
                 uid: generateUID(),
                 joinDate: new Date().toLocaleDateString('en-GB'), 
-                balance: referredBy ? 5 : 0, // ₹5 bonus for referred users
+                balanceINR: referredBy ? 5 : 0, // ₹5 bonus for referred users
+                balanceUSDT: 0,
                 lastSeen: 'just now', 
                 withdrawals: [],
                 registeredAt: new Date().toISOString(),
@@ -1988,13 +2329,18 @@ Please send payment screenshot for confirmation.`;
         }
 
         // Auto commission on deposits
-        function addReferralCommission(depositingUser, amount) {
+        function addReferralCommission(depositingUser, amount, currency) {
             if (depositingUser.referredBy) {
                 const referrer = users.find(u => u.referralCode === depositingUser.referredBy);
                 if (referrer) {
                     const commission = amount * 0.02; // 2% commission
                     referrer.referralEarnings = (referrer.referralEarnings || 0) + commission;
-                    referrer.balance += commission;
+                    
+                    if (currency === 'INR') {
+                        referrer.balanceINR = (referrer.balanceINR || 0) + commission;
+                    } else {
+                        referrer.balanceUSDT = (referrer.balanceUSDT || 0) + commission;
+                    }
                     
                     // Add to commission history
                     if (!referrer.commissionHistory) referrer.commissionHistory = [];
@@ -2010,6 +2356,7 @@ Please send payment screenshot for confirmation.`;
                     referrer.transactionHistory.unshift({
                         type: 'Referral Commission',
                         amount: commission,
+                        currency: currency,
                         date: new Date().toLocaleString(),
                         from: depositingUser.username
                     });
@@ -2034,7 +2381,7 @@ Please send payment screenshot for confirmation.`;
 
             const prevEarnings = user.referralEarnings || 0;
             user.referralEarnings = prevEarnings + amount;
-            user.balance += amount;
+            user.balanceINR = (user.balanceINR || 0) + amount;
 
             // Add to commission history
             if (!user.commissionHistory) user.commissionHistory = [];
@@ -2050,6 +2397,7 @@ Please send payment screenshot for confirmation.`;
             user.transactionHistory.unshift({
                 type: 'Manual Referral Commission',
                 amount: amount,
+                currency: 'INR',
                 date: new Date().toLocaleString(),
                 from: reason
             });
@@ -2147,13 +2495,35 @@ Please send payment screenshot for confirmation.`;
             document.getElementById('dashboard').classList.remove('hidden');
             document.getElementById('dashUsername').textContent = user.username;
             document.getElementById('userUID').textContent = user.uid;
-            updateBalance(); // Ensure balance updates on login/refresh
+            updateBalanceDisplay(); // Ensure balance updates on login/refresh
             updateLastSeen();
             loadActiveInvestments();
             
             // Load default chart
             if (document.getElementById('advanced-chart')) {
                 loadChart('BTCUSDT');
+            }
+            
+            // Load TradingView widget for AI Bot section
+            if (document.getElementById('tradingview-widget')) {
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": "400",
+                    "symbol": "BINANCE:BTCUSDT",
+                    "interval": "5",
+                    "timezone": "Etc/UTC",
+                    "theme": isDarkMode ? "dark" : "light",
+                    "style": "1",
+                    "locale": "in",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview-widget",
+                    "studies": [
+                        "RSI@tv-basicstudies",
+                        "MACD@tv-basicstudies"
+                    ]
+                });
             }
         }
 
@@ -2208,15 +2578,6 @@ Please send payment screenshot for confirmation.`;
             }
         }
 
-        function updateBalance() {
-            if (currentUser) {
-                document.getElementById('walletBalance').textContent = `₹${currentUser.balance || 0}`;
-                document.getElementById('profileBalance').textContent = currentUser.balance || 0;
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                saveUsersToCloud();
-            }
-        }
-
         function updateLastSeen() {
             setInterval(() => {
                 if (currentUser) document.getElementById('lastSeen').textContent = 'Last seen: just now';
@@ -2247,33 +2608,33 @@ Please send payment screenshot for confirmation.`;
             }
             if (section === 'aiBot') {
                 loadAITradeHistory();
-                // Load TradingView widget for AI Bot section
-                if (document.getElementById('tradingview-widget')) {
-                    new TradingView.widget({
-                        "width": "100%",
-                        "height": "400",
-                        "symbol": "BINANCE:BTCUSDT",
-                        "interval": "5",
-                        "timezone": "Etc/UTC",
-                        "theme": isDarkMode ? "dark" : "light",
-                        "style": "1",
-                        "locale": "in",
-                        "toolbar_bg": "#f1f3f6",
-                        "enable_publishing": false,
-                        "allow_symbol_change": true,
-                        "container_id": "tradingview-widget",
-                        "studies": [
-                            "RSI@tv-basicstudies",
-                            "MACD@tv-basicstudies"
-                        ]
-                    });
-                }
+                updateAIBalance();
             }
             if (section === 'chartAnalysis') {
                 // Load default chart if not already loaded
                 if (document.getElementById('advanced-chart').innerHTML === '') {
                     loadChart('BTCUSDT');
                 }
+            }
+            if (section === 'exchange') {
+                // Update exchange calculations
+                document.getElementById('inrToUsdt').addEventListener('input', function() {
+                    const inrAmount = parseFloat(this.value) || 0;
+                    const usdtAmount = inrAmount / exchangeRate;
+                    document.getElementById('usdtReceived').textContent = `${usdtAmount.toFixed(2)} USDT`;
+                });
+                
+                document.getElementById('usdtToInr').addEventListener('input', function() {
+                    const usdtAmount = parseFloat(this.value) || 0;
+                    const inrAmount = usdtAmount * exchangeRate;
+                    document.getElementById('inrReceived').textContent = `₹${inrAmount.toFixed(2)}`;
+                });
+            }
+            if (section === 'deposit') {
+                showDepositMethod('INR'); // Default to INR
+            }
+            if (section === 'withdraw') {
+                showWithdrawMethod('INR'); // Default to INR
             }
             toggleMenu();
         }
@@ -2288,7 +2649,8 @@ Please send payment screenshot for confirmation.`;
                 document.getElementById('profileUID').textContent = currentUser.uid;
                 document.getElementById('profileJoinDate').textContent = currentUser.joinDate;
                 document.getElementById('profileLastSeen').textContent = currentUser.lastSeen;
-                document.getElementById('profileBalance').textContent = currentUser.balance || 0;
+                document.getElementById('profileBalanceINR').textContent = (currentUser.balanceINR || 0).toFixed(2);
+                document.getElementById('profileBalanceUSDT').textContent = (currentUser.balanceUSDT || 0).toFixed(2);
                 document.getElementById('profileInvestments').textContent = currentUser.investments ? currentUser.investments.length : 0;
                 document.getElementById('profileProfits').textContent = currentUser.totalWinnings || 0;
                 document.getElementById('profileWithdrawals').textContent = currentUser.totalWithdrawals || 0;
@@ -2312,7 +2674,7 @@ Please send payment screenshot for confirmation.`;
                 if (currentUser.transactionHistory && currentUser.transactionHistory.length > 0) {
                     transactionHistory.innerHTML = currentUser.transactionHistory.slice(0, 10).map(transaction => 
                         `<div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
-                            <p class="dark:text-white"><strong>${transaction.type}</strong> - ₹${transaction.amount || 0}</p>
+                            <p class="dark:text-white"><strong>${transaction.type}</strong> - ${transaction.currency === 'INR' ? '₹' : '$'}${transaction.amount || 0}</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">${transaction.date}</p>
                             ${transaction.note ? `<p class="text-xs text-gray-500">${transaction.note}</p>` : ''}
                         </div>`
@@ -2334,10 +2696,10 @@ Please send payment screenshot for confirmation.`;
                         
                         return `
                             <div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
-                                <p class="dark:text-white"><strong>${planNames[investment.planId]}</strong> - ₹${investment.amount}</p>
+                                <p class="dark:text-white"><strong>${planNames[investment.planId]}</strong> - $${investment.amount}</p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400">${investment.date}</p>
                                 <p class="text-sm ${investment.active ? 'text-green-600' : 'text-gray-600'}">${investment.active ? 'Active' : 'Completed'}</p>
-                                ${investment.totalReturns > 0 ? `<p class="text-sm text-green-600">Returns: ₹${investment.totalReturns.toFixed(2)}</p>` : ''}
+                                ${investment.totalReturns > 0 ? `<p class="text-sm text-green-600">Returns: $${investment.totalReturns.toFixed(2)}</p>` : ''}
                             </div>
                         `;
                     }).join('');
@@ -2349,7 +2711,7 @@ Please send payment screenshot for confirmation.`;
                 if (currentUser.withdrawals && currentUser.withdrawals.length > 0) {
                     withdrawalHistory.innerHTML = currentUser.withdrawals.map(withdrawal => 
                         `<div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
-                            <p class="dark:text-white"><strong>Withdrawal:</strong> ₹${withdrawal.amount}</p>
+                            <p class="dark:text-white"><strong>Withdrawal:</strong> ${withdrawal.currency === 'INR' ? '₹' : '$'}${withdrawal.amount}</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">${withdrawal.date} - ${withdrawal.status || 'Pending'}</p>
                         </div>`
                     ).join('');
@@ -2372,8 +2734,8 @@ Please send payment screenshot for confirmation.`;
             }
 
             const bonusAmount = Math.floor(Math.random() * 5) + 1; // ₹1 to ₹5
-            currentUser.balance += bonusAmount;
-            updateBalance();
+            currentUser.balanceINR = (currentUser.balanceINR || 0) + bonusAmount;
+            updateBalanceDisplay();
 
             localStorage.setItem(`lastBonus_${currentUser.email}`, today);
             alert(`🎉 Daily bonus claimed! You received ₹${bonusAmount}`);
@@ -2400,7 +2762,8 @@ Please send payment screenshot for confirmation.`;
                 div.innerHTML = `
                     <p class="dark:text-white"><strong>${user.username}</strong> (${user.email})</p>
                     <p class="dark:text-gray-300">Phone: ${user.phone} | UID: ${user.uid}</p>
-                    <p class="dark:text-gray-300">Balance: ₹${user.balance} | Joined: ${user.joinDate}</p>
+                    <p class="dark:text-gray-300">INR: ₹${user.balanceINR || 0} | USDT: $${user.balanceUSDT || 0}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Joined: ${user.joinDate}</p>
                     <p class="text-sm text-gray-600 dark:text-gray-400">Winnings: ₹${user.totalWinnings || 0} | Withdrawals: ₹${user.totalWithdrawals || 0}</p>
                     <p class="text-sm text-gray-600 dark:text-gray-400">Referrals: ${user.totalReferrals || 0} | Ref Earnings: ₹${user.referralEarnings || 0}</p>
                     <p class="text-sm text-gray-600 dark:text-gray-400">AI Trading: ${user.aiTrading && user.aiTrading.active ? 'Active' : 'Inactive'}</p>
@@ -2433,24 +2796,25 @@ Please send payment screenshot for confirmation.`;
             if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
             const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
             if (!user) return alert('User not found! Check email spelling.');
-            user.balance += amt;
+            user.balanceINR = (user.balanceINR || 0) + amt;
             user.totalDeposits = (user.totalDeposits || 0) + amt;
             
             // Add referral commission if applicable
-            addReferralCommission(user, amt);
+            addReferralCommission(user, amt, 'INR');
             
             // Add transaction to user history
             if (!user.transactionHistory) user.transactionHistory = [];
             user.transactionHistory.unshift({
                 type: 'Bonus Received Successfully',
                 amount: amt,
+                currency: 'INR',
                 date: new Date().toLocaleString()
             });
             
             await saveUsersToCloud();
-            alert(`₹${amt} added to ${user.username}. New balance: ₹${user.balance}`);
+            alert(`₹${amt} added to ${user.username}. New balance: ₹${user.balanceINR}`);
             loadAdminUsers();
-            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) await updateBalance();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalanceDisplay();
         }
 
         async function deductFund(email, amountStr) {
@@ -2458,21 +2822,121 @@ Please send payment screenshot for confirmation.`;
             if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
             const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
             if (!user) return alert('User not found! Check email spelling.');
-            if (user.balance < amt) return alert(`Insufficient balance. User has only ₹${user.balance}`);
-            user.balance -= amt;
+            if ((user.balanceINR || 0) < amt) return alert(`Insufficient balance. User has only ₹${user.balanceINR}`);
+            user.balanceINR = (user.balanceINR || 0) - amt;
             
             // Add transaction to user history
             if (!user.transactionHistory) user.transactionHistory = [];
             user.transactionHistory.unshift({
                 type: 'Admin Deducted Funds',
                 amount: amt,
+                currency: 'INR',
                 date: new Date().toLocaleString()
             });
             
             await saveUsersToCloud();
-            alert(`₹${amt} deducted from ${user.username}. New balance: ₹${user.balance}`);
+            alert(`₹${amt} deducted from ${user.username}. New balance: ₹${user.balanceINR}`);
             loadAdminUsers();
-            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) await updateBalance();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalanceDisplay();
+        }
+
+        // Admin AI Control Functions
+        function addAIProfit() {
+            const email = document.getElementById('adminAIUserEmail').value.trim().toLowerCase();
+            const profit = parseFloat(document.getElementById('adminAIProfit').value);
+            
+            if (!email || isNaN(profit)) {
+                alert('Please enter valid email and profit amount');
+                return;
+            }
+            
+            const user = users.find(u => u.email === email);
+            if (!user) {
+                alert('User not found!');
+                return;
+            }
+            
+            if (!user.aiTrading) user.aiTrading = {};
+            user.aiTrading.profit = (user.aiTrading.profit || 0) + profit;
+            user.balanceINR = (user.balanceINR || 0) + profit;
+            
+            // Add transaction record
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'AI Trading Profit (Admin)',
+                amount: profit,
+                currency: 'INR',
+                date: new Date().toLocaleString(),
+                note: `Admin added profit`
+            });
+            
+            saveUsersToCloud();
+            alert(`Added ₹${profit} AI profit to ${user.username}`);
+            
+            // Clear fields
+            document.getElementById('adminAIUserEmail').value = '';
+            document.getElementById('adminAIProfit').value = '';
+        }
+
+        function startAllAIBots() {
+            users.forEach(user => {
+                if ((user.balanceINR || 0) >= 10 && (!user.aiTrading || !user.aiTrading.active)) {
+                    if (!user.aiTrading) user.aiTrading = {};
+                    user.aiTrading.active = true;
+                    user.aiTrading.startTime = new Date().toLocaleString();
+                    user.aiTrading.profit = 0;
+                    user.aiTrading.riskLevel = 5;
+                    user.aiTrading.currency = 'INR';
+                    
+                    activeAIBots.push(user.email);
+                    
+                    // Add transaction record
+                    if (!user.transactionHistory) user.transactionHistory = [];
+                    user.transactionHistory.unshift({
+                        type: 'AI Trading Started (Admin)',
+                        amount: 0,
+                        currency: 'INR',
+                        date: new Date().toLocaleString(),
+                        note: `Admin started AI trading`
+                    });
+                }
+            });
+            
+            saveUsersToCloud();
+            alert('Started AI trading for all eligible users');
+        }
+
+        function stopAllAIBots() {
+            users.forEach(user => {
+                if (user.aiTrading && user.aiTrading.active) {
+                    user.aiTrading.active = false;
+                    user.aiTrading.endTime = new Date().toLocaleString();
+                    
+                    // Add final profit to balance
+                    if (user.aiTrading.profit > 0) {
+                        if (user.aiTrading.currency === 'INR') {
+                            user.balanceINR = (user.balanceINR || 0) + user.aiTrading.profit;
+                        } else {
+                            user.balanceUSDT = (user.balanceUSDT || 0) + user.aiTrading.profit;
+                        }
+                        
+                        // Add transaction record
+                        if (!user.transactionHistory) user.transactionHistory = [];
+                        user.transactionHistory.unshift({
+                            type: 'AI Trading Profit (Admin)',
+                            amount: user.aiTrading.profit,
+                            currency: user.aiTrading.currency,
+                            date: new Date().toLocaleString(),
+                            note: `Final profit from AI trading (Admin stopped)`
+                        });
+                    }
+                    
+                    activeAIBots = activeAIBots.filter(email => email !== user.email);
+                }
+            });
+            
+            saveUsersToCloud();
+            alert('Stopped AI trading for all users');
         }
 
         function logout() {
