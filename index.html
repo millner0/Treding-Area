@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Area Trading - Professional Crypto Mining Platform</title>
+    <title>Alpha Area Mining - Professional Crypto Mining Platform</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Tailwind CSS CDN -->
@@ -16,15 +16,15 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F172A',
-                        secondary: '#1E293B',
-                        accent: '#0EA5E9',
-                        success: '#10B981',
-                        warning: '#F59E0B',
-                        danger: '#EF4444'
+                        primary: '#1E3A8A',
+                        secondary: '#2563EB',
+                        accent: '#059669',
+                        dark: '#111827',
+                        light: '#F9FAFB',
+                        mining: '#F59E0B'
                     },
                     fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
+                        heading: ['Fredoka One', 'cursive'],
                         body: ['Poppins', 'sans-serif']
                     }
                 }
@@ -39,7 +39,7 @@
             overflow-x: hidden;
         }
         .gradient-bg { 
-            background: linear-gradient(135deg, #0F172A, #1E293B, #0EA5E9);
+            background: linear-gradient(135deg, #1E3A8A, #2563EB, #059669);
             background-size: 400% 400%;
             animation: gradientShift 8s ease infinite;
         }
@@ -56,12 +56,12 @@
             animation: pulse 2s infinite; 
         }
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
         }
         .stats-counter {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Fredoka One', cursive;
         }
         .floating {
             animation: floating 3s ease-in-out infinite;
@@ -70,6 +70,10 @@
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
+        }
+        .hero-image {
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            border: 3px solid white;
         }
         .live-transaction {
             animation: slideIn 0.5s ease-out;
@@ -82,24 +86,24 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
         @keyframes glow {
-            from { box-shadow: 0 0 10px #0EA5E9; }
-            to { box-shadow: 0 0 20px #0EA5E9, 0 0 30px #0EA5E9; }
+            from { box-shadow: 0 0 10px #2563EB; }
+            to { box-shadow: 0 0 20px #2563EB, 0 0 30px #2563EB; }
         }
         .dark-mode {
-            background-color: #0F172A;
-            color: #F1F5F9;
+            background-color: #1a202c;
+            color: #e2e8f0;
         }
         .dark-mode .bg-white {
-            background-color: #1E293B;
+            background-color: #2d3748;
         }
         .dark-mode .text-dark {
-            color: #F1F5F9;
+            color: #e2e8f0;
         }
         .dark-mode .bg-light {
-            background-color: #334155;
+            background-color: #4a5568;
         }
         .hero-text-shimmer {
-            background: linear-gradient(90deg, #0F172A, #1E293B, #0EA5E9, #0F172A);
+            background: linear-gradient(90deg, #1E3A8A, #2563EB, #059669, #1E3A8A);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -136,7 +140,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #1E293B, #0EA5E9);
+            background: linear-gradient(45deg, #2563EB, #059669);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -206,10 +210,10 @@
             border: 2px solid transparent;
         }
         .mining-card:hover {
-            border-color: #0EA5E9;
+            border-color: #F59E0B;
         }
         .profit {
-            color: #10B981;
+            color: #059669;
         }
         .loss {
             color: #EF4444;
@@ -219,26 +223,26 @@
             border: 2px solid transparent;
         }
         .plan-card:hover {
-            border-color: #10B981;
+            border-color: #059669;
             transform: scale(1.02);
         }
         .active-plan {
-            border-color: #10B981;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            border-color: #059669;
+            box-shadow: 0 0 15px rgba(5, 150, 105, 0.3);
         }
         .ai-bot-active {
-            border-left: 4px solid #10B981;
+            border-left: 4px solid #059669;
         }
         .trade-success {
-            background: linear-gradient(45deg, #10B981, #34D399);
+            background: linear-gradient(45deg, #059669, #10B981);
             color: white;
         }
         .trade-pending {
-            background: linear-gradient(45deg, #F59E0B, #FBBF24);
+            background: linear-gradient(45deg, #D97706, #F59E0B);
             color: white;
         }
         .trade-failed {
-            background: linear-gradient(45deg, #EF4444, #F87171);
+            background: linear-gradient(45deg, #DC2626, #EF4444);
             color: white;
         }
         .balance-display {
@@ -260,7 +264,7 @@
             z-index: 100;
         }
         .back-arrow {
-            background: #0F172A;
+            background: #1E3A8A;
             color: white;
             width: 40px;
             height: 40px;
@@ -272,52 +276,39 @@
             transition: all 0.3s ease;
         }
         .back-arrow:hover {
-            background: #1E293B;
+            background: #2563EB;
             transform: scale(1.1);
         }
         .signal-bullish {
-            background: linear-gradient(45deg, #10B981, #34D399);
+            background: linear-gradient(45deg, #059669, #10B981);
             color: white;
         }
         .signal-bearish {
-            background: linear-gradient(45deg, #EF4444, #F87171);
+            background: linear-gradient(45deg, #DC2626, #EF4444);
             color: white;
         }
         .mining-animation {
-            animation: miningPulse 1.5s ease-in-out infinite;
+            animation: miningPulse 2s infinite;
         }
         @keyframes miningPulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-        .mining-earnings {
-            font-family: 'Courier New', monospace;
-            background: #0F172A;
-            color: #10B981;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #334155;
+        .mining-glow {
+            animation: miningGlow 2s ease-in-out infinite alternate;
         }
-        .status-approved {
-            color: #10B981;
-            font-weight: bold;
-        }
-        .status-rejected {
-            color: #EF4444;
-            font-weight: bold;
-        }
-        .status-pending {
-            color: #F59E0B;
-            font-weight: bold;
+        @keyframes miningGlow {
+            from { box-shadow: 0 0 10px #F59E0B; }
+            to { box-shadow: 0 0 20px #F59E0B, 0 0 30px #F59E0B; }
         }
     </style>
 </head>
-<body class="bg-gray-50 font-body text-gray-800 min-h-screen overflow-x-hidden">
+<body class="bg-light font-body text-dark min-h-screen overflow-x-hidden">
 
     <!-- Language Selector -->
     <div class="fixed top-32 right-4 z-50">
-        <button id="languageToggle" class="bg-accent text-white p-3 rounded-full shadow-lg hover:bg-primary transition">
+        <button id="languageToggle" class="bg-secondary text-white p-3 rounded-full shadow-lg hover:bg-primary transition">
             <i class="fas fa-globe"></i>
         </button>
     </div>
@@ -331,16 +322,19 @@
         <div id="particles" class="absolute inset-0 pointer-events-none"></div>
 
         <!-- Professional Navbar -->
-        <nav class="bg-white shadow-lg sticky top-0 z-50 dark:bg-secondary">
+        <nav class="bg-white shadow-lg sticky top-0 z-50 dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <i class="fas fa-server text-accent text-3xl mr-2"></i>
+                        <i class="fas fa-digging text-mining text-3xl mr-2"></i>
                         <h1 class="text-2xl font-heading text-primary dark:text-white">Alpha Area Mining</h1>
                     </div>
                     <div class="flex space-x-3">
-                        <button onclick="showLogin()" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-accent transition font-semibold text-sm">Login</button>
-                        <button onclick="showSignup()" class="bg-accent text-white px-5 py-2 rounded-lg hover:bg-primary transition font-semibold text-sm">Sign Up</button>
+                        <button onclick="showLogin()" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-secondary transition font-semibold text-sm">Login</button>
+                        <button onclick="showSignup()" class="bg-secondary text-white px-5 py-2 rounded-lg hover:bg-primary transition font-semibold text-sm">Sign Up</button>
+                        <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="bg-green-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-green-600 transition text-sm flex items-center">
+                            <i class="fas fa-headset mr-2"></i> Support
+                        </a>
                     </div>
                 </div>
             </div>
@@ -351,19 +345,22 @@
             <div class="text-center text-white max-w-6xl w-full relative z-10">
                 <!-- Professional Mining Images -->
                 <div class="flex justify-center items-center mb-8 space-x-4">
-                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-white bg-opacity-20 backdrop-blur-sm flex items-center justify-center floating">
-                        <i class="fas fa-server text-4xl text-accent"></i>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-2xl mining-glow">
+                        <i class="fas fa-server text-4xl text-mining mb-4"></i>
+                        <p class="font-bold">Mining Rigs</p>
                     </div>
-                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-white bg-opacity-20 backdrop-blur-sm flex items-center justify-center hero-card-float">
-                        <i class="fas fa-digital-tachograph text-4xl text-success"></i>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-2xl mining-glow" style="animation-delay: 0.5s;">
+                        <i class="fas fa-microchip text-4xl text-mining mb-4"></i>
+                        <p class="font-bold">ASIC Miners</p>
                     </div>
-                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-white bg-opacity-20 backdrop-blur-sm flex items-center justify-center floating">
-                        <i class="fab fa-bitcoin text-4xl text-warning"></i>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-2xl mining-glow" style="animation-delay: 1s;">
+                        <i class="fas fa-bolt text-4xl text-mining mb-4"></i>
+                        <p class="font-bold">High Performance</p>
                     </div>
                 </div>
 
                 <h1 class="text-4xl md:text-6xl font-heading mb-6 hero-text-shimmer">Professional Crypto Mining Platform</h1>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Join India's fastest growing crypto mining platform. Advanced mining technology, daily returns, and 24/7 support. Start mining today!</p>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Join India's fastest growing crypto mining platform. Advanced mining technology, daily returns, and 24/7 support. Start mining crypto like never before!</p>
                 
                 <!-- Enhanced Live Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8 max-w-5xl mx-auto">
@@ -373,31 +370,31 @@
                         <p class="text-xs">Active Miners</p>
                     </div>
                     <div class="bg-white bg-opacity-20 backdrop-blur-sm p-3 rounded-2xl">
-                        <i class="fas fa-server text-xl mb-1"></i>
-                        <p class="text-xl font-bold stats-counter" id="totalHashrate">285.6 PH/s</p>
-                        <p class="text-xs">Total Hashrate</p>
+                        <i class="fas fa-rupee-sign text-xl mb-1"></i>
+                        <p class="text-xl font-bold stats-counter" id="totalDeposit">₹2,45,892</p>
+                        <p class="text-xs">Total Deposit</p>
                     </div>
                     <div class="bg-white bg-opacity-20 backdrop-blur-sm p-3 rounded-2xl">
-                        <i class="fas fa-coins text-xl mb-1"></i>
-                        <p class="text-xl font-bold stats-counter" id="totalMined">12,458 BTC</p>
-                        <p class="text-xs">Total Mined</p>
+                        <i class="fas fa-money-bill-wave text-xl mb-1"></i>
+                        <p class="text-xl font-bold stats-counter" id="totalWithdrawal">₹1,89,456</p>
+                        <p class="text-xs">Total Withdrawal</p>
                     </div>
                     <div class="bg-white bg-opacity-20 backdrop-blur-sm p-3 rounded-2xl">
-                        <i class="fas fa-bolt text-xl mb-1"></i>
-                        <p class="text-xl font-bold stats-counter" id="activeRigs">8,247</p>
-                        <p class="text-xs">Active Rigs</p>
+                        <i class="fas fa-trophy text-xl mb-1"></i>
+                        <p class="text-xl font-bold stats-counter" id="liveWinners">3,247</p>
+                        <p class="text-xs">Today's Profits</p>
                     </div>
                     <div class="bg-white bg-opacity-20 backdrop-blur-sm p-3 rounded-2xl">
-                        <i class="fas fa-chart-line text-xl mb-1"></i>
-                        <p class="text-xl font-bold stats-counter" id="dailyProfit">$289,456</p>
-                        <p class="text-xs">Daily Profit</p>
+                        <i class="fas fa-digging text-xl mb-1"></i>
+                        <p class="text-xl font-bold stats-counter" id="aiTrades">1,258</p>
+                        <p class="text-xs">Active Mining Rigs</p>
                     </div>
                 </div>
 
                 <!-- Enhanced Live Transactions -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-3 mb-6 max-w-3xl mx-auto">
                     <div class="flex items-center justify-center mb-2">
-                        <i class="fas fa-bolt text-accent mr-2"></i>
+                        <i class="fas fa-bolt text-mining mr-2"></i>
                         <p class="font-bold text-sm">Live Mining Activity</p>
                     </div>
                     <div class="space-y-1 text-xs" id="liveTransactions">
@@ -408,14 +405,21 @@
                 <button onclick="showSignup()" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-bold hover:scale-105 transition transform pulse mr-4">
                     <i class="fas fa-play mr-2"></i>Start Mining & Get Bonus!
                 </button>
-                <button onclick="showLogin()" class="bg-accent text-white px-8 py-3 rounded-lg text-lg font-bold hover:scale-105 transition transform pulse">
+                <button onclick="showLogin()" class="bg-secondary text-white px-8 py-3 rounded-lg text-lg font-bold hover:scale-105 transition transform pulse">
                     <i class="fas fa-sign-in-alt mr-2"></i>Quick Login
                 </button>
+
+                <!-- Telegram Community Button -->
+                <div class="mt-6">
+                    <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition inline-flex items-center">
+                        <i class="fab fa-telegram mr-2 text-xl"></i>Join Our Telegram Community
+                    </a>
+                </div>
 
                 <!-- Enhanced Referral Banner -->
                 <div class="mt-6 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-4 max-w-lg mx-auto referral-glow">
                     <div class="flex items-center justify-center">
-                        <i class="fas fa-gift text-accent text-xl mr-2"></i>
+                        <i class="fas fa-gift text-mining text-xl mr-2"></i>
                         <p class="font-bold">🎯 Get 2% Commission on Every Direct Member's Deposit!</p>
                     </div>
                     <p class="text-sm mt-1">Invite friends & earn unlimited rewards! Track earnings in real-time.</p>
@@ -425,84 +429,52 @@
         </section>
 
         <!-- Professional Features Section -->
-        <section class="py-16 bg-white dark:bg-secondary">
+        <section class="py-16 bg-white dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-4xl font-heading text-center mb-12 text-primary dark:text-white hero-text-shimmer">Why Choose Alpha Area Mining?</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-8 bg-gray-50 dark:bg-primary rounded-2xl card-hover">
-                        <i class="fas fa-server text-5xl text-accent mb-4 floating"></i>
-                        <h3 class="text-2xl font-bold mb-2 dark:text-white">Advanced Mining Rigs</h3>
-                        <p class="dark:text-gray-300">State-of-the-art ASIC miners with maximum efficiency and profitability</p>
-                    </div>
-                    <div class="text-center p-8 bg-gray-50 dark:bg-primary rounded-2xl card-hover">
-                        <i class="fas fa-shield-alt text-5xl text-success mb-4 floating" style="animation-delay: 0.5s;"></i>
-                        <h3 class="text-2xl font-bold mb-2 dark:text-white">100% Secure</h3>
-                        <p class="dark:text-gray-300">Bank-level security with cold storage for your mined cryptocurrencies</p>
-                    </div>
-                    <div class="text-center p-8 bg-gray-50 dark:bg-primary rounded-2xl card-hover">
-                        <i class="fas fa-bolt text-5xl text-warning mb-4 floating" style="animation-delay: 1s;"></i>
-                        <h3 class="text-2xl font-bold mb-2 dark:text-white">Instant Payouts</h3>
-                        <p class="dark:text-gray-300">Withdraw your mining profits anytime with instant processing</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mining Process Section -->
-        <section class="py-16 bg-gray-100 dark:bg-primary">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-heading text-center mb-12 text-primary dark:text-white">How Crypto Mining Works</h2>
                 <div class="grid md:grid-cols-4 gap-6">
-                    <div class="text-center p-6 bg-white dark:bg-secondary rounded-2xl card-hover">
-                        <div class="w-16 h-16 bg-accent text-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <span class="text-xl font-bold">1</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 dark:text-white">Choose Mining Plan</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Select from our range of profitable mining plans</p>
+                    <div class="text-center p-6 bg-light dark:bg-gray-700 rounded-2xl card-hover">
+                        <i class="fas fa-server text-5xl text-mining mb-4 floating"></i>
+                        <h3 class="text-2xl font-bold mb-2 dark:text-white">Advanced Mining Rigs</h3>
+                        <p class="dark:text-gray-300">State-of-the-art ASIC miners for maximum profitability</p>
                     </div>
-                    <div class="text-center p-6 bg-white dark:bg-secondary rounded-2xl card-hover">
-                        <div class="w-16 h-16 bg-accent text-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <span class="text-xl font-bold">2</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 dark:text-white">Start Mining</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Your mining rig starts working immediately</p>
+                    <div class="text-center p-6 bg-light dark:bg-gray-700 rounded-2xl card-hover">
+                        <i class="fas fa-lock text-5xl text-primary mb-4 floating" style="animation-delay: 0.5s;"></i>
+                        <h3 class="text-2xl font-bold mb-2 dark:text-white">100% Secure</h3>
+                        <p class="dark:text-gray-300">Bank-level encryption and security protocols</p>
                     </div>
-                    <div class="text-center p-6 bg-white dark:bg-secondary rounded-2xl card-hover">
-                        <div class="w-16 h-16 bg-accent text-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <span class="text-xl font-bold">3</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 dark:text-white">Earn Rewards</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Earn mining rewards every second</p>
+                    <div class="text-center p-6 bg-light dark:bg-gray-700 rounded-2xl card-hover">
+                        <i class="fas fa-chart-line text-5xl text-accent mb-4 floating" style="animation-delay: 1s;"></i>
+                        <h3 class="text-2xl font-bold mb-2 dark:text-white">Daily Returns</h3>
+                        <p class="dark:text-gray-300">Earn daily profits with our mining plans</p>
                     </div>
-                    <div class="text-center p-6 bg-white dark:bg-secondary rounded-2xl card-hover">
-                        <div class="w-16 h-16 bg-accent text-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <span class="text-xl font-bold">4</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 dark:text-white">Withdraw Profits</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Withdraw your earnings anytime</p>
+                    <div class="text-center p-6 bg-light dark:bg-gray-700 rounded-2xl card-hover">
+                        <i class="fas fa-headset text-5xl text-secondary mb-4 floating" style="animation-delay: 1.5s;"></i>
+                        <h3 class="text-2xl font-bold mb-2 dark:text-white">24/7 Support</h3>
+                        <p class="dark:text-gray-300">Live chat & WhatsApp assistance anytime</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Policies Section -->
-        <section class="py-16 bg-white dark:bg-secondary">
+        <section class="py-16 bg-gray-100 dark:bg-gray-900">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-4xl font-heading text-center mb-12 text-primary dark:text-white">Company Policies</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl card-hover">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
                         <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Return Policy</h3>
                         <p class="text-gray-600 dark:text-gray-300">We offer a 7-day return policy on all mining plans. Terms and conditions apply.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl card-hover">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
                         <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Refund Policy</h3>
                         <p class="text-gray-600 dark:text-gray-300">Full refunds available within 24 hours of purchase. Contact support for assistance.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl card-hover">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
                         <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Privacy Policy</h3>
                         <p class="text-gray-600 dark:text-gray-300">We protect your data with industry-standard security measures and encryption.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl card-hover">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl card-hover">
                         <h3 class="text-xl font-bold mb-3 text-primary dark:text-white">Disclaimer</h3>
                         <p class="text-gray-600 dark:text-gray-300">Mining involves risk. Past performance doesn't guarantee future results.</p>
                     </div>
@@ -518,60 +490,60 @@
 
     <!-- Signup Modal -->
     <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-secondary rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Create Account</h2>
                 <button onclick="closeModals()" class="text-2xl dark:text-white">×</button>
             </div>
             <form onsubmit="handleSignup(event)">
-                <input type="text" id="signupName" placeholder="Full Name" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <input type="email" id="signupEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <input type="tel" id="signupPhone" placeholder="Phone (10 digits)" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" pattern="[0-9]{10}" required>
-                <input type="text" id="signupReferralCode" placeholder="Referral Code (Optional)" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white">
-                <input type="password" id="signupPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                <input type="text" id="signupName" placeholder="Full Name" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <input type="email" id="signupEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <input type="tel" id="signupPhone" placeholder="Phone (10 digits)" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" pattern="[0-9]{10}" required>
+                <input type="text" id="signupReferralCode" placeholder="Referral Code (Optional)" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white">
+                <input type="password" id="signupPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
                     Sign Up Free
                 </button>
             </form>
             <!-- Admin Login Option (Small) -->
             <div class="mt-4 text-center">
-                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-accent transition">Admin Login</button>
+                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-primary transition">Admin Login</button>
             </div>
         </div>
     </div>
 
     <!-- Login Modal -->
     <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-secondary rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Welcome Back!</h2>
                 <button onclick="closeModals()" class="text-2xl dark:text-white">×</button>
             </div>
             <form onsubmit="handleLogin(event)">
-                <input type="email" id="loginEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <input type="password" id="loginPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                <input type="email" id="loginEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <input type="password" id="loginPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
                     Login Now
                 </button>
             </form>
             <!-- Admin Login Option (Small) -->
             <div class="mt-4 text-center">
-                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-accent transition">Admin Login</button>
+                <button onclick="showAdminLogin()" class="text-xs text-gray-500 hover:text-primary transition">Admin Login</button>
             </div>
         </div>
     </div>
 
     <!-- Admin Login Modal -->
     <div id="adminLoginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white dark:bg-secondary rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md transform scale-95 transition">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-heading text-primary dark:text-white">Admin Login</h2>
                 <button onclick="closeAdminModal()" class="text-2xl dark:text-white">×</button>
             </div>
             <form onsubmit="handleAdminLogin(event)">
-                <input type="email" id="adminEmail" placeholder="Admin Email" class="w-full p-4 mb-4 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <input type="password" id="adminPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-accent rounded-xl focus:border-primary outline-none dark:bg-primary dark:text-white" required>
-                <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                <input type="email" id="adminEmail" placeholder="Admin Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <input type="password" id="adminPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none dark:bg-gray-700 dark:text-white" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
                     Admin Login
                 </button>
             </form>
@@ -579,19 +551,19 @@
     </div>
 
     <!-- Dashboard (After Login) -->
-    <div id="dashboard" class="hidden min-h-screen bg-gray-50 dark:bg-primary">
+    <div id="dashboard" class="hidden min-h-screen bg-light dark:bg-gray-900">
         <!-- Dashboard Navbar -->
-        <nav class="bg-white dark:bg-secondary shadow-lg sticky top-0 z-40">
+        <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <i class="fas fa-server text-accent text-3xl mr-2"></i>
+                        <i class="fas fa-digging text-mining text-3xl mr-2"></i>
                         <h1 class="text-2xl font-heading text-primary dark:text-white">Alpha Area Mining</h1>
                     </div>
                     <div class="flex items-center space-x-6">
                         <!-- Daily Login Bonus -->
                         <div class="hidden md:block">
-                            <button onclick="claimDailyBonus()" class="bg-warning text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-500 transition">
+                            <button onclick="claimDailyBonus()" class="bg-yellow-500 text-dark px-4 py-2 rounded-lg font-bold hover:bg-yellow-600 transition">
                                 <i class="fas fa-gift mr-1"></i> Daily Bonus
                             </button>
                         </div>
@@ -603,16 +575,17 @@
                             <button onclick="toggleMenu()" class="text-3xl text-dark dark:text-white">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
-                            <div id="menuDropdown" class="absolute right-0 mt-2 w-56 bg-white dark:bg-secondary rounded-2xl shadow-xl hidden">
-                                <a href="#" onclick="showSection('profile')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary rounded-t-2xl dark:text-white"><i class="fas fa-user mr-2"></i> Profile</a>
-                                <a href="#" onclick="showSection('deposit')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-wallet mr-2"></i> Deposit</a>
-                                <a href="#" onclick="showSection('withdraw')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-money-bill-wave mr-2"></i> Withdraw</a>
-                                <a href="#" onclick="showSection('history')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-history mr-2"></i> History</a>
-                                <a href="#" onclick="showSection('referral')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-user-plus mr-2"></i> Refer & Earn</a>
-                                <a href="#" onclick="showSection('exchange')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-exchange-alt mr-2"></i> Exchange Currency</a>
-                                <a href="#" onclick="showSection('mining')" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-server mr-2"></i> Crypto Mining</a>
-                                <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary dark:text-white"><i class="fas fa-headset mr-2"></i> Customer Support</a>
-                                <a href="#" class="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-primary text-danger rounded-b-2xl" onclick="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+                            <div id="menuDropdown" class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-2xl shadow-xl hidden">
+                                <a href="#" onclick="showSection('profile')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 rounded-t-2xl dark:text-white"><i class="fas fa-user mr-2"></i> Profile</a>
+                                <a href="#" onclick="showSection('deposit')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-wallet mr-2"></i> Deposit</a>
+                                <a href="#" onclick="showSection('withdraw')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-money-bill-wave mr-2"></i> Withdraw</a>
+                                <a href="#" onclick="showSection('history')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-history mr-2"></i> History</a>
+                                <a href="#" onclick="showSection('referral')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-user-plus mr-2"></i> Refer & Earn</a>
+                                <a href="#" onclick="showSection('exchange')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-exchange-alt mr-2"></i> Exchange Currency</a>
+                                <a href="#" onclick="showSection('aiBot')" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-robot mr-2"></i> AI Bot Trading</a>
+                                <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fab fa-telegram mr-2"></i> Community</a>
+                                <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 dark:text-white"><i class="fas fa-headset mr-2"></i> Customer Support</a>
+                                <a href="#" class="block px-6 py-3 hover:bg-light dark:hover:bg-gray-700 text-red-600 rounded-b-2xl" onclick="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
                             </div>
                         </div>
                     </div>
@@ -623,28 +596,28 @@
         <!-- Mining Banners -->
         <div class="max-w-7xl mx-auto px-4 py-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div class="bg-gradient-to-r from-primary to-accent rounded-2xl p-4 text-white text-center card-hover">
-                    <p class="font-bold text-sm">Bitcoin Mining</p>
-                    <p class="text-xs">SHA-256 Algorithm</p>
+                <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-4 text-white text-center card-hover">
+                    <p class="font-bold text-sm">Crypto Mining</p>
+                    <p class="text-xs">Automated Profits</p>
                 </div>
-                <div class="bg-gradient-to-r from-success to-accent rounded-2xl p-4 text-white text-center card-hover">
-                    <p class="font-bold text-sm">Ethereum Mining</p>
-                    <p class="text-xs">Ethash Algorithm</p>
-                </div>
-                <div class="bg-gradient-to-r from-warning to-danger rounded-2xl p-4 text-white text-center card-hover">
-                    <p class="font-bold text-sm">Litecoin Mining</p>
-                    <p class="text-xs">Scrypt Algorithm</p>
+                <div class="bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl p-4 text-white text-center card-hover">
+                    <p class="font-bold text-sm">Bitcoin</p>
+                    <p class="text-xs">BTC Mining</p>
                 </div>
                 <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-4 text-white text-center card-hover">
-                    <p class="font-bold text-sm">Altcoin Mining</p>
-                    <p class="text-xs">Multiple Algorithms</p>
+                    <p class="font-bold text-sm">Ethereum</p>
+                    <p class="text-xs">ETH Mining</p>
+                </div>
+                <div class="bg-gradient-to-r from-mining to-red-500 rounded-2xl p-4 text-white text-center card-hover">
+                    <p class="font-bold text-sm">USDT</p>
+                    <p class="text-xs">Stablecoin Mining</p>
                 </div>
             </div>
         </div>
 
         <!-- User Info Card with Both Balances -->
         <div class="max-w-7xl mx-auto px-4 py-8">
-            <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-3xl shadow-xl">
+            <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center">
                     <div>
                         <p class="text-sm opacity-90">Welcome to Alpha Area Mining</p>
@@ -674,192 +647,210 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <div class="trade-success p-4 rounded-2xl text-white">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold">Active Miners</span>
+                        <span class="font-bold">Active Mining Rigs</span>
                         <span class="text-sm">Today</span>
                     </div>
-                    <p class="mt-2 text-2xl" id="activeMinersCount">1,247</p>
-                    <p class="text-sm" id="activeMinersProfit">+$289,456 Profit</p>
+                    <p class="mt-2 text-2xl" id="successfulTradesCount">1,247</p>
+                    <p class="text-sm" id="successfulTradesProfit">+₹2,89,456 Profit</p>
                 </div>
                 <div class="trade-pending p-4 rounded-2xl text-white">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold">Network Hashrate</span>
-                        <span class="text-sm">Live</span>
+                        <span class="font-bold">Active Miners</span>
+                        <span class="text-sm">Running</span>
                     </div>
-                    <p class="mt-2 text-2xl" id="networkHashrate">285.6 PH/s</p>
-                    <p class="text-sm" id="hashrateProgress">+12.4 PH/s Today</p>
+                    <p class="mt-2 text-2xl" id="activeTradesCount">342</p>
+                    <p class="text-sm" id="activeTradesProgress">₹1,23,789 in Progress</p>
                 </div>
                 <div class="trade-failed p-4 rounded-2xl text-white">
                     <div class="flex justify-between items-center">
                         <span class="font-bold">Mining Efficiency</span>
                         <span class="text-sm">This Week</span>
                     </div>
-                    <p class="mt-2 text-2xl" id="miningEfficiency">87.5%</p>
-                    <p class="text-sm" id="efficiencyRate">142/162 Rigs Optimal</p>
+                    <p class="mt-2 text-2xl" id="aiBotAccuracy">87.5%</p>
+                    <p class="text-sm" id="aiBotProfitable">142/162 Active</p>
                 </div>
             </div>
         </div>
 
         <!-- Crypto Mining Plans Section -->
-        <div id="miningSection" class="max-w-7xl mx-auto px-4 pb-20">
-            <h2 class="text-3xl font-heading text-center mb-8 text-primary dark:text-white">⛏️ Crypto Mining Plans</h2>
-            <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Start mining cryptocurrency with our profitable mining plans</p>
+        <div id="stakingSection" class="max-w-7xl mx-auto px-4 pb-20">
+            <h2 class="text-3xl font-heading text-center mb-8 text-primary dark:text-white">💰 Crypto Mining Plans</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Earn daily returns with our secure mining plans</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 <!-- Plan 1 -->
-                <div class="plan-card bg-white dark:bg-secondary p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectMiningPlan(1)">
+                <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(1)">
                     <div class="text-center">
-                        <i class="fas fa-server text-4xl text-accent mb-4"></i>
+                        <i class="fas fa-digging text-4xl text-mining mb-4"></i>
                         <p class="text-2xl font-bold text-primary dark:text-white">$50 - $99</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Basic Miner</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Basic Mining</p>
                         <div class="space-y-2 mb-4">
-                            <p class="text-lg font-bold text-success">0.1% Daily</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">$0.05 - $0.10/day</p>
+                            <p class="text-lg font-bold text-green-600">0.1% Daily</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Monthly: 3%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Yearly: 36.5%</p>
                         </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-accent transition">
+                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-secondary transition">
                             Start Mining
                         </button>
                     </div>
                 </div>
                 
                 <!-- Plan 2 -->
-                <div class="plan-card bg-white dark:bg-secondary p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectMiningPlan(2)">
+                <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(2)">
                     <div class="text-center">
-                        <i class="fas fa-server text-4xl text-success mb-4"></i>
+                        <i class="fas fa-server text-4xl text-mining mb-4"></i>
                         <p class="text-2xl font-bold text-primary dark:text-white">$100 - $499</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Advanced Miner</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Silver Mining</p>
                         <div class="space-y-2 mb-4">
-                            <p class="text-lg font-bold text-success">0.2% Daily</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">$0.20 - $1.00/day</p>
+                            <p class="text-lg font-bold text-green-600">0.2% Daily</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Monthly: 6%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Yearly: 73%</p>
                         </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-accent transition">
+                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-secondary transition">
                             Start Mining
                         </button>
                     </div>
                 </div>
                 
                 <!-- Plan 3 -->
-                <div class="plan-card bg-white dark:bg-secondary p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectMiningPlan(3)">
+                <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(3)">
                     <div class="text-center">
-                        <i class="fas fa-server text-4xl text-warning mb-4"></i>
+                        <i class="fas fa-microchip text-4xl text-mining mb-4"></i>
                         <p class="text-2xl font-bold text-primary dark:text-white">$500 - $999</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Pro Miner</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Gold Mining</p>
                         <div class="space-y-2 mb-4">
-                            <p class="text-lg font-bold text-success">0.25% Daily</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">$1.25 - $2.50/day</p>
+                            <p class="text-lg font-bold text-green-600">0.25% Daily</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Monthly: 7.5%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Yearly: 91.25%</p>
                         </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-accent transition">
+                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-secondary transition">
                             Start Mining
                         </button>
                     </div>
                 </div>
                 
                 <!-- Plan 4 -->
-                <div class="plan-card bg-white dark:bg-secondary p-6 rounded-2xl shadow-lg cursor-pointer active-plan" onclick="selectMiningPlan(4)">
+                <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer active-plan" onclick="selectPlan(4)">
                     <div class="text-center">
-                        <i class="fas fa-server text-4xl text-danger mb-4"></i>
+                        <i class="fas fa-bolt text-4xl text-mining mb-4"></i>
                         <p class="text-2xl font-bold text-primary dark:text-white">$1000 - $4999</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Enterprise Miner</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Platinum Mining</p>
                         <div class="space-y-2 mb-4">
-                            <p class="text-lg font-bold text-success">0.5% Daily</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">$5.00 - $25.00/day</p>
+                            <p class="text-lg font-bold text-green-600">0.5% Daily</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Monthly: 15%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Yearly: 182.5%</p>
                         </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-accent transition">
+                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-secondary transition">
                             Start Mining
                         </button>
                     </div>
                 </div>
                 
                 <!-- Plan 5 -->
-                <div class="plan-card bg-white dark:bg-secondary p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectMiningPlan(5)">
+                <div class="plan-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg cursor-pointer" onclick="selectPlan(5)">
                     <div class="text-center">
-                        <i class="fas fa-server text-4xl text-purple-500 mb-4"></i>
+                        <i class="fas fa-crown text-4xl text-mining mb-4"></i>
                         <p class="text-2xl font-bold text-primary dark:text-white">$5000+</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">VIP Mining Farm</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">VIP Mining</p>
                         <div class="space-y-2 mb-4">
-                            <p class="text-lg font-bold text-success">1% Daily</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">$50.00+/day</p>
+                            <p class="text-lg font-bold text-green-600">1% Daily</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Monthly: 30%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Yearly: 365%</p>
                         </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-accent transition">
+                        <button class="w-full bg-primary text-white py-2 rounded-xl font-bold hover:bg-secondary transition">
                             Start Mining
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Active Mining Rigs -->
+            <!-- Active Mining Investments -->
             <div class="mt-12">
-                <h2 class="text-3xl font-heading text-center mb-6 text-primary dark:text-white">⚡ Your Active Mining Rigs</h2>
-                <div id="activeMiningRigs" class="space-y-4">
-                    <!-- Active mining rigs will be loaded here -->
-                    <p class="text-center text-gray-500 dark:text-gray-400">No active mining rigs yet. Choose a plan to start mining!</p>
+                <h2 class="text-3xl font-heading text-center mb-6 text-primary dark:text-white">📊 Your Active Mining</h2>
+                <div id="activeInvestments" class="space-y-4">
+                    <!-- Active mining will be loaded here -->
+                    <p class="text-center text-gray-500 dark:text-gray-400">No active mining yet. Choose a plan to start earning!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Bot Trading Section -->
+        <div id="aiBotSection" class="hidden max-w-6xl mx-auto px-4 py-10">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-heading text-primary dark:text-white">🤖 AI Bot Trading</h2>
+                    <div class="back-arrow" onclick="showSection('staking')">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-red-100 dark:bg-red-900 p-6 rounded-2xl text-center">
+                    <i class="fas fa-exclamation-triangle text-5xl text-red-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-red-700 dark:text-red-300 mb-2">AI Trading Currently Unavailable</h3>
+                    <p class="text-red-600 dark:text-red-400">Our AI trading feature is temporarily disabled for maintenance. Please check back later.</p>
                 </div>
             </div>
         </div>
 
         <!-- Exchange Currency Section -->
         <div id="exchangeSection" class="hidden max-w-4xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">💱 Exchange Currency</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                         <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR to USDT</h3>
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium dark:text-gray-300 mb-2">Amount in INR</label>
-                                <input type="number" id="inrToUsdt" placeholder="Enter INR amount" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white" min="500">
+                                <input type="number" id="inrToUsdt" placeholder="Enter INR amount" class="w-full p-4 border-2 border-secondary rounded-xl dark:bg-gray-600 dark:text-white" min="500">
                                 <p class="text-xs text-gray-500 mt-1">Minimum: ₹500</p>
                             </div>
                             <div class="bg-primary text-white p-4 rounded-xl">
                                 <p class="text-sm">You will receive: <span id="usdtReceived" class="font-bold">0.00 USDT</span></p>
                                 <p class="text-xs mt-1">Exchange rate: 1 USDT = ₹88</p>
                             </div>
-                            <button onclick="convertINRtoUSDT()" class="w-full bg-success text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
+                            <button onclick="convertINRtoUSDT()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
                                 Convert to USDT
                             </button>
                         </div>
                     </div>
                     
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                         <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT to INR</h3>
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium dark:text-gray-300 mb-2">Amount in USDT</label>
-                                <input type="number" id="usdtToInr" placeholder="Enter USDT amount" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white" min="10">
+                                <input type="number" id="usdtToInr" placeholder="Enter USDT amount" class="w-full p-4 border-2 border-secondary rounded-xl dark:bg-gray-600 dark:text-white" min="10">
                                 <p class="text-xs text-gray-500 mt-1">Minimum: 10 USDT</p>
                             </div>
                             <div class="bg-primary text-white p-4 rounded-xl">
                                 <p class="text-sm">You will receive: <span id="inrReceived" class="font-bold">₹0.00</span></p>
                                 <p class="text-xs mt-1">Exchange rate: 1 USDT = ₹88</p>
                             </div>
-                            <button onclick="convertUSDTtoINR()" class="w-full bg-success text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
+                            <button onclick="convertUSDTtoINR()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition">
                                 Convert to INR
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-8 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mt-8 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="exchangeINRBalance">₹0</p>
                                 <p class="text-lg ml-1 opacity-80" id="exchangeINRDecimal">.00</p>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="exchangeUSDTBalance">$0</p>
@@ -873,16 +864,16 @@
 
         <!-- Profile Section -->
         <div id="profileSection" class="hidden max-w-4xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Your Profile</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
                 <div class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="p-6 bg-gray-50 dark:bg-primary rounded-2xl">
+                        <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
                             <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Personal Info</h3>
                             <div class="space-y-3 dark:text-gray-300">
                                 <p><strong>Name:</strong> <span id="profileName">-</span></p>
@@ -893,18 +884,19 @@
                                 <p><strong>Joined Date:</strong> <span id="profileJoinDate">-</span></p>
                                 <p><strong>Last Seen:</strong> <span id="profileLastSeen">-</span></p>
                             </div>
-                            <button onclick="updateProfile()" class="mt-4 bg-primary text-white px-4 py-2 rounded-xl font-bold hover:bg-accent transition">
+                            <button onclick="updateProfile()" class="mt-4 bg-primary text-white px-4 py-2 rounded-xl font-bold hover:bg-secondary transition">
                                 Update Profile
                             </button>
                         </div>
-                        <div class="p-6 bg-gray-50 dark:bg-primary rounded-2xl">
-                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Mining Stats</h3>
+                        <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Account Stats</h3>
                             <div class="space-y-3 dark:text-gray-300">
                                 <p><strong>INR Balance:</strong> ₹<span id="profileBalanceINR">0</span></p>
                                 <p><strong>USDT Balance:</strong> $<span id="profileBalanceUSDT">0</span></p>
-                                <p><strong>Active Mining Rigs:</strong> <span id="profileMiningRigs">0</span></p>
-                                <p><strong>Total Mining Profit:</strong> $<span id="profileMiningProfit">0</span></p>
+                                <p><strong>Total Investments:</strong> <span id="profileInvestments">0</span></p>
+                                <p><strong>Total Profits:</strong> ₹<span id="profileProfits">0</span></p>
                                 <p><strong>Total Withdrawals:</strong> ₹<span id="profileWithdrawals">0</span></p>
+                                <p><strong>Mining Rigs:</strong> <span id="profileAITrades">0</span></p>
                                 <p><strong>Referral Earnings:</strong> ₹<span id="profileReferralEarnings">0</span></p>
                             </div>
                         </div>
@@ -915,28 +907,28 @@
 
         <!-- History Section -->
         <div id="historySection" class="hidden max-w-6xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Your History</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
                 <div class="space-y-6">
-                    <div class="p-6 bg-gray-50 dark:bg-primary rounded-2xl">
+                    <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
                         <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Recent Transactions</h3>
                         <div id="transactionHistory" class="space-y-3">
                             <p class="text-center text-gray-500 dark:text-gray-400">No transactions yet</p>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="p-6 bg-gray-50 dark:bg-primary rounded-2xl">
-                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Mining History</h3>
-                            <div id="miningHistory" class="space-y-3">
-                                <p class="text-center text-gray-500 dark:text-gray-400">No mining history yet</p>
+                        <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Investment History</h3>
+                            <div id="investmentHistory" class="space-y-3">
+                                <p class="text-center text-gray-500 dark:text-gray-400">No investments yet</p>
                             </div>
                         </div>
-                        <div class="p-6 bg-gray-50 dark:bg-primary rounded-2xl">
+                        <div class="p-6 bg-light dark:bg-gray-700 rounded-2xl">
                             <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Withdrawal History</h3>
                             <div id="withdrawalHistory" class="space-y-3">
                                 <p class="text-center text-gray-500 dark:text-gray-400">No withdrawals yet</p>
@@ -949,16 +941,16 @@
 
         <!-- Referral Section -->
         <div id="referralSection" class="hidden max-w-4xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white">Refer & Earn</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="bg-gradient-to-br from-primary to-accent text-white p-6 rounded-2xl">
+                    <div class="bg-gradient-to-br from-primary to-secondary text-white p-6 rounded-2xl">
                         <h3 class="text-xl font-bold mb-4">🎯 Your Referral Stats</h3>
                         <div class="space-y-3">
                             <p><strong>Referral Code:</strong> <span id="referralCode" class="bg-white bg-opacity-20 px-2 py-1 rounded">Loading...</span></p>
@@ -967,7 +959,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                    <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                         <h3 class="text-xl font-bold text-primary dark:text-white mb-4">💰 How it Works</h3>
                         <div class="space-y-3 text-sm dark:text-gray-300">
                             <p>✅ <strong>2% Commission</strong> on every direct member's deposit</p>
@@ -981,20 +973,20 @@
                 <div class="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-2xl p-6 mb-6">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">📤 Your Referral Code</h3>
                     <div class="text-center mb-4">
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl border-2 border-primary inline-block">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border-2 border-primary inline-block">
                             <p class="text-3xl font-bold text-primary dark:text-white" id="referralCodeDisplay">Loading...</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Share this code with friends</p>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button onclick="copyReferralCode()" class="bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-accent transition">
+                        <button onclick="copyReferralCode()" class="bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-secondary transition">
                             <i class="fas fa-copy mr-2"></i>Copy Referral Code
                         </button>
                     </div>
                     <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-3">Share this code with friends! When they sign up using your code, you get 2% commission on their deposits!</p>
                 </div>
 
-                <div class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">👥 Your Referrals & Commission History</h3>
                     <div id="referralList" class="space-y-3">
                         <p class="text-center text-gray-500 dark:text-gray-400">No referrals yet. Share your code to start earning!</p>
@@ -1005,10 +997,10 @@
 
         <!-- DEPOSIT SECTION -->
         <div id="depositSection" class="hidden max-w-4xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Deposit Money</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
@@ -1017,7 +1009,7 @@
                 <div class="mb-6">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Select Currency</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <button id="depositINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-accent transition" onclick="showDepositMethod('INR')">
+                        <button id="depositINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-secondary transition" onclick="showDepositMethod('INR')">
                             Deposit INR
                         </button>
                         <button id="depositUSDTBtn" class="bg-gray-300 text-gray-700 py-4 rounded-xl font-bold text-lg hover:bg-gray-400 transition" onclick="showDepositMethod('USDT')">
@@ -1027,65 +1019,57 @@
                 </div>
                 
                 <!-- INR Deposit -->
-                <div id="inrDeposit" class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div id="inrDeposit" class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Deposit</h3>
                     
                     <!-- Amount Selection -->
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-primary dark:text-white mb-3">Select Amount</h4>
-                        <div class="grid grid-cols-4 gap-2 mb-4">
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="500">₹500</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="1000">₹1000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="2000">₹2000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="3000">₹3000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="5000">₹5000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="10000">₹10000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="20000">₹20000</button>
-                            <button class="deposit-amount-btn bg-gray-200 dark:bg-secondary py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition" data-amount="50000">₹50000</button>
+                        <div class="grid grid-cols-3 gap-3 mb-4">
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="500">₹500</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="1000">₹1000</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="2000">₹2000</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="3000">₹3000</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="5000">₹5000</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="10000">₹10000</button>
                         </div>
-                        <div class="mb-4">
-                            <label class="block text-sm font-medium dark:text-gray-300 mb-2">Or Enter Custom Amount</label>
-                            <input type="number" id="depositAmountINR" placeholder="Enter Amount (min ₹500)" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white" min="500">
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="20000">₹20000</button>
+                            <button class="deposit-amount-btn bg-gray-200 dark:bg-gray-600 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition" data-amount="50000">₹50000</button>
                         </div>
                     </div>
                     
-                    <!-- UPI Details -->
+                    <input type="number" id="depositAmountINR" placeholder="Or Enter Custom Amount (min ₹500)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="500">
+                    
                     <div class="mb-4 p-4 bg-yellow-50 dark:bg-yellow-900 rounded-xl border border-yellow-200 dark:border-yellow-700">
                         <p class="text-center font-bold text-lg dark:text-white">Send payment to: <span class="text-primary" id="currentUPI">millnerkaptan01@fam</span></p>
+                        <p class="text-center text-sm mt-2 dark:text-gray-300">After payment, submit UTR for verification</p>
                         <div class="flex justify-center space-x-2 mt-3">
-                            <button onclick="copyUPI()" class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
+                            <button onclick="copyUPI()" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
                                 <i class="fas fa-copy mr-1"></i>Copy UPI
                             </button>
                         </div>
                     </div>
                     
-                    <!-- UTR Submission -->
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium dark:text-gray-300 mb-2">UTR Number (After Payment)</label>
-                        <input type="text" id="utrNumber" placeholder="Enter UTR Number" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white">
-                    </div>
+                    <input type="text" id="depositUTR" placeholder="Enter UTR Number" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
                     
-                    <button onclick="submitINRDeposit()" class="w-full bg-success text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                    <button onclick="submitINRDeposit()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
                         Submit Deposit Request
                     </button>
                 </div>
                 
                 <!-- USDT Deposit -->
-                <div id="usdtDeposit" class="bg-gray-50 dark:bg-primary p-6 rounded-2xl hidden">
+                <div id="usdtDeposit" class="bg-light dark:bg-gray-700 p-6 rounded-2xl hidden">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Deposit</h3>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium dark:text-gray-300 mb-2">Amount in USDT</label>
-                        <input type="number" id="depositAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white" min="10">
-                    </div>
                     <div class="mb-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-xl border border-blue-200 dark:border-blue-700">
                         <p class="text-center font-bold text-lg dark:text-white">Send USDT to:</p>
                         <p class="text-center text-sm mt-2 dark:text-gray-300 font-mono">BSC BNB Smart Chain (Bep 20)</p>
                         <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">0x8e57d705f1b58ceda77c91df6ac80aac5c2a83df</p>
-                        <p class="text-center text-sm mt-2 dark:text-gray-300">OR</p>
+                        <p class="text-center text-sm mt-2">OR</p>
                         <p class="text-center text-sm mt-1 dark:text-gray-300 font-mono">TRC 20: TN9DDuzXnXirgAAS4mRe8VFQ6VxuVUQmJc</p>
                         <p class="text-center text-xs mt-2 dark:text-gray-300 text-red-500">Minimum 10 USDT, otherwise deposit not received</p>
                         <div class="flex justify-center space-x-2 mt-3">
-                            <button onclick="copyUSDTAddress('bsc')" class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
+                            <button onclick="copyUSDTAddress('bsc')" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-600 transition">
                                 <i class="fas fa-copy mr-1"></i>Copy BSC
                             </button>
                             <button onclick="copyUSDTAddress('trc')" class="bg-purple-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-purple-600 transition">
@@ -1093,23 +1077,24 @@
                             </button>
                         </div>
                     </div>
+                    <input type="number" id="depositAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
                     <button onclick="submitUSDTDeposit()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
                         Submit Deposit Request
                     </button>
                 </div>
                 
                 <!-- Balance Display -->
-                <div class="mt-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mt-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="depositINRBalance">₹0</p>
                                 <p class="text-lg ml-1 opacity-80" id="depositINRDecimal">.00</p>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="depositUSDTBalance">$0</p>
@@ -1123,10 +1108,10 @@
 
         <!-- WITHDRAW SECTION -->
         <div id="withdrawSection" class="hidden max-w-4xl mx-auto px-4 py-10">
-            <div class="bg-white dark:bg-secondary p-8 rounded-3xl shadow-xl">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Withdraw Money</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
@@ -1135,7 +1120,7 @@
                 <div class="mb-6">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Select Currency</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <button id="withdrawINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-accent transition" onclick="showWithdrawMethod('INR')">
+                        <button id="withdrawINRBtn" class="bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-secondary transition" onclick="showWithdrawMethod('INR')">
                             Withdraw INR
                         </button>
                         <button id="withdrawUSDTBtn" class="bg-gray-300 text-gray-700 py-4 rounded-xl font-bold text-lg hover:bg-gray-400 transition" onclick="showWithdrawMethod('USDT')">
@@ -1145,55 +1130,59 @@
                 </div>
                 
                 <!-- INR Withdrawal -->
-                <div id="inrWithdraw" class="bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div id="inrWithdraw" class="bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">INR Withdrawal</h3>
-                    <input type="number" id="withdrawAmountINR" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-accent rounded-xl mb-4 dark:bg-secondary dark:text-white" min="100">
+                    <input type="number" id="withdrawAmountINR" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="100">
                     
                     <!-- Bank Details Form -->
-                    <div class="space-y-4 mb-4">
-                        <h4 class="text-lg font-bold text-primary dark:text-white">Bank Details</h4>
-                        <input type="text" id="bankName" placeholder="Bank Name" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="text" id="accHolderName" placeholder="Account Holder Name" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="text" id="accNumber" placeholder="Account Number" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="text" id="ifsc" placeholder="IFSC Code" class="w-full p-4 border-2 border-accent rounded-xl dark:bg-secondary dark:text-white">
+                    <div id="bankDetailsForm">
+                        <input type="text" id="bankName" placeholder="Bank Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                        <input type="text" id="accHolderName" placeholder="Account Holder Name" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                        <input type="text" id="accNumber" placeholder="Account Number" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                        <input type="text" id="ifsc" placeholder="IFSC Code" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                        <button onclick="saveBankDetails()" class="w-full bg-blue-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition mb-4">
+                            Save Bank Details
+                        </button>
                     </div>
                     
-                    <button onclick="saveBankDetails()" class="w-full bg-accent text-white py-3 rounded-xl font-bold hover:bg-blue-600 transition mb-4">
-                        Save Bank Details
-                    </button>
+                    <!-- Saved Bank Details -->
+                    <div id="savedBankDetails" class="hidden bg-green-50 dark:bg-green-900 p-4 rounded-xl border border-green-200 dark:border-green-700 mb-4">
+                        <p class="text-green-700 dark:text-green-300 font-bold">Bank Details Saved</p>
+                        <p class="text-sm text-green-600 dark:text-green-400" id="savedBankInfo"></p>
+                    </div>
                     
-                    <button onclick="submitINRWithdrawal()" class="w-full bg-success text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
+                    <button onclick="submitINRWithdraw()" class="w-full bg-red-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
                         Submit Withdrawal Request
                     </button>
                 </div>
                 
                 <!-- USDT Withdrawal -->
-                <div id="usdtWithdraw" class="bg-gray-50 dark:bg-primary p-6 rounded-2xl hidden">
+                <div id="usdtWithdraw" class="bg-light dark:bg-gray-700 p-6 rounded-2xl hidden">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">USDT Withdrawal</h3>
-                    <input type="number" id="withdrawAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-accent rounded-xl mb-4 dark:bg-secondary dark:text-white" min="10">
-                    <input type="text" id="usdtAddress" placeholder="USDT Address" class="w-full p-4 border-2 border-accent rounded-xl mb-4 dark:bg-secondary dark:text-white">
-                    <select id="usdtNetwork" class="w-full p-4 border-2 border-accent rounded-xl mb-4 dark:bg-secondary dark:text-white">
+                    <input type="number" id="withdrawAmountUSDT" placeholder="Enter Amount (min 10 USDT)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white" min="10">
+                    <input type="text" id="usdtAddress" placeholder="USDT Address" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
+                    <select id="usdtNetwork" class="w-full p-4 border-2 border-secondary rounded-xl mb-4 dark:bg-gray-600 dark:text-white">
                         <option value="bsc">BSC (BEP-20)</option>
                         <option value="trc">TRC-20</option>
                         <option value="erc">ERC-20</option>
                     </select>
-                    <button onclick="submitUSDTWithdrawal()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
+                    <button onclick="submitUSDTWithdraw()" class="w-full bg-purple-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
                         Submit Withdrawal Request
                     </button>
                 </div>
                 
                 <!-- Balance Display -->
-                <div class="mt-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mt-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Your Balances</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">INR Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="withdrawINRBalance">₹0</p>
                                 <p class="text-lg ml-1 opacity-80" id="withdrawINRDecimal">.00</p>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary p-4 rounded-xl">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-xl">
                             <p class="text-lg font-bold text-primary dark:text-white">USDT Balance</p>
                             <div class="flex items-baseline">
                                 <p class="text-3xl font-bold" id="withdrawUSDTBalance">$0</p>
@@ -1207,42 +1196,40 @@
 
         <!-- Admin Panel -->
         <div id="adminSection" class="hidden max-w-6xl mx-auto px-4 py-16">
-            <div class="bg-white dark:bg-secondary rounded-3xl shadow-xl p-8">
+            <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-heading text-primary dark:text-white text-center">Admin Panel</h2>
-                    <div class="back-arrow" onclick="showSection('mining')">
+                    <div class="back-arrow" onclick="showSection('staking')">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </div>
-                <div class="mb-6 p-4 bg-gray-50 dark:bg-primary rounded-xl text-center">
+                <div class="mb-6 p-4 bg-light dark:bg-gray-700 rounded-xl text-center">
                     <p class="text-xl font-bold dark:text-white">Total Registered Users: <span id="totalUsers">0</span></p>
                 </div>
                 
                 <!-- Deposit Requests -->
-                <div class="mb-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mb-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Deposit Requests</h3>
-                    <div id="adminDepositRequests" class="space-y-4 max-h-96 overflow-y-auto">
-                        <!-- Deposit requests will be loaded here -->
-                        <p class="text-center text-gray-500 dark:text-gray-400">No deposit requests yet</p>
+                    <div id="adminDepositRequests" class="space-y-4">
+                        <!-- Deposit requests will appear here -->
                     </div>
                 </div>
                 
                 <!-- Withdrawal Requests -->
-                <div class="mb-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mb-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Withdrawal Requests</h3>
-                    <div id="adminWithdrawalRequests" class="space-y-4 max-h-96 overflow-y-auto">
-                        <!-- Withdrawal requests will be loaded here -->
-                        <p class="text-center text-gray-500 dark:text-gray-400">No withdrawal requests yet</p>
+                    <div id="adminWithdrawalRequests" class="space-y-4">
+                        <!-- Withdrawal requests will appear here -->
                     </div>
                 </div>
                 
                 <!-- User Stats Update Section -->
-                <div class="mb-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mb-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Update User Stats</h3>
                     <div class="grid md:grid-cols-4 gap-4 mb-4">
-                        <input type="email" id="adminUserEmailStats" placeholder="User Email" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminUserWinnings" placeholder="Total Winnings" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminUserWithdrawals" placeholder="Total Withdrawals" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
+                        <input type="email" id="adminUserEmailStats" placeholder="User Email" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminUserWinnings" placeholder="Total Winnings" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminUserWithdrawals" placeholder="Total Withdrawals" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
                         <button onclick="updateUserStats()" class="bg-purple-500 text-white px-4 py-3 rounded-xl font-bold hover:bg-purple-600 transition">
                             Update Stats
                         </button>
@@ -1250,26 +1237,26 @@
                 </div>
 
                 <!-- Referral Stats Update Section -->
-                <div class="mb-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mb-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Update Referral Stats</h3>
                     <div class="grid md:grid-cols-4 gap-4 mb-4">
-                        <input type="email" id="adminUserEmailReferral" placeholder="User Email" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminUserReferrals" placeholder="Total Referrals" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminUserReferralEarnings" placeholder="Referral Earnings" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <button onclick="updateReferralStats()" class="bg-accent text-white px-4 py-3 rounded-xl font-bold hover:bg-blue-600 transition">
+                        <input type="email" id="adminUserEmailReferral" placeholder="User Email" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminUserReferrals" placeholder="Total Referrals" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminUserReferralEarnings" placeholder="Referral Earnings" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <button onclick="updateReferralStats()" class="bg-blue-500 text-white px-4 py-3 rounded-xl font-bold hover:bg-blue-600 transition">
                             Update Referral
                         </button>
                     </div>
                 </div>
 
                 <!-- Manual Referral Commission Add/Deduct Section -->
-                <div class="mb-6 bg-gray-50 dark:bg-primary p-6 rounded-2xl">
+                <div class="mb-6 bg-light dark:bg-gray-700 p-6 rounded-2xl">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Manual Referral Commission</h3>
                     <div class="grid md:grid-cols-4 gap-4 mb-4">
-                        <input type="email" id="adminReferralUserEmail" placeholder="User Email" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminReferralAmount" placeholder="Amount (Positive=Add, Negative=Deduct)" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="text" id="adminReferralReason" placeholder="Reason (e.g., Manual Add)" class="p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <button onclick="manualReferralCommission()" class="bg-success text-white px-4 py-3 rounded-xl font-bold hover:bg-green-600 transition">
+                        <input type="email" id="adminReferralUserEmail" placeholder="User Email" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminReferralAmount" placeholder="Amount (Positive=Add, Negative=Deduct)" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="text" id="adminReferralReason" placeholder="Reason (e.g., Manual Add)" class="p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <button onclick="manualReferralCommission()" class="bg-green-500 text-white px-4 py-3 rounded-xl font-bold hover:bg-green-600 transition">
                             Apply Commission
                         </button>
                     </div>
@@ -1278,17 +1265,17 @@
                 <div class="mb-6">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Add Funds to User</h3>
                     <div class="flex gap-4 mb-4">
-                        <input type="email" id="adminUserEmail" placeholder="User Email" class="flex-1 p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminFundAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <button onclick="addFundToUser()" class="bg-success text-white px-6 py-3 rounded-xl font-bold">Add Funds</button>
+                        <input type="email" id="adminUserEmail" placeholder="User Email" class="flex-1 p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminFundAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <button onclick="addFundToUser()" class="bg-green-500 text-white px-6 py-3 rounded-xl font-bold">Add Funds</button>
                     </div>
                 </div>
                 <div class="mb-6">
                     <h3 class="text-xl font-bold mb-4 dark:text-white">Deduct Funds from User</h3>
                     <div class="flex gap-4 mb-4">
-                        <input type="email" id="adminUserEmailDeduct" placeholder="User Email" class="flex-1 p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <input type="number" id="adminDeductAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl dark:bg-secondary dark:text-white">
-                        <button onclick="deductFundFromUser()" class="bg-danger text-white px-6 py-3 rounded-xl font-bold">Deduct Funds</button>
+                        <input type="email" id="adminUserEmailDeduct" placeholder="User Email" class="flex-1 p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <input type="number" id="adminDeductAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl dark:bg-gray-600 dark:text-white">
+                        <button onclick="deductFundFromUser()" class="bg-red-500 text-white px-6 py-3 rounded-xl font-bold">Deduct Funds</button>
                     </div>
                 </div>
                 
@@ -1298,7 +1285,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-8">
+    <footer class="bg-dark text-white py-8">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -1331,13 +1318,16 @@
                             <a href="https://wa.me/message/Q4BLFPHK2VU7H1" target="_blank" class="text-green-400 hover:text-green-300">
                                 <i class="fab fa-whatsapp text-xl"></i>
                             </a>
+                            <a href="https://t.me/+_4xwakMXjOdiMTg9" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-telegram text-xl"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
                 <p>© 2025 Alpha Area Mining. All rights reserved.</p>
-                <p class="text-sm mt-2">Mining involves risk. 18+ only.</p>
+                <p class="text-sm mt-2">Mine responsibly. 18+ only.</p>
             </div>
         </div>
     </footer>
@@ -1351,29 +1341,29 @@
         let currentUser = null;
         let users = [];
         let isAdmin = false;
+        let isDarkMode = false;
         let currentLanguage = 'english';
+        let activeMining = [];
         let miningIntervals = {};
         let exchangeRate = 88; // 1 USDT = 88 INR
-        let depositRequests = [];
-        let withdrawalRequests = [];
 
         // Live Stats Data - Enhanced with Mining Transactions
         const transactions = [
             "Mohan withdrew $77",
             "Raj deposited ₹5000",
-            "Priya earned $12.50 from mining",
-            "Amit started Enterprise Miner",
+            "Priya earned ₹1200 from mining",
+            "Amit invested in Platinum mining",
             "Sneha received ₹250 referral bonus",
             "Vikash claimed daily bonus ₹5",
-            "Neha's mining rig made $18.00 profit",
-            "Rohan started VIP Mining Farm",
+            "Neha's mining rig made ₹1800 profit",
+            "Rohan started mining with ₹10000",
             "Pooja withdrew ₹4500",
-            "Karan's mining yielded $32.00 profit",
+            "Karan's mining yielded ₹3200 profit",
             "Sonia deposited ₹7500",
-            "Arjun received $15.00 mining rewards",
+            "Arjun received ₹150 mining returns",
             "Meera referred friend +₹100",
             "Vikram's mining efficiency 92%",
-            "Priyanka started Pro Miner"
+            "Priyanka invested in Gold mining"
         ];
 
         // Multi-language support
@@ -1382,12 +1372,14 @@
                 welcome: "Welcome back,",
                 walletBalance: "Wallet Balance",
                 playNow: "Start Mining & Get Bonus!",
+                joinTelegram: "Join Our Telegram Community",
                 referralBonus: "Get 2% Commission on Every Direct Member's Deposit!"
             },
             hindi: {
                 welcome: "वापसी पर स्वागत है,",
                 walletBalance: "वॉलेट बैलेंस",
                 playNow: "अभी माइनिंग शुरू करें और बोनस पाएं!",
+                joinTelegram: "हमारे टेलीग्राम समुदाय में शामिल हों",
                 referralBonus: "हर सीधे सदस्य के डिपॉजिट पर 2% कमीशन पाएं!"
             }
         };
@@ -1398,14 +1390,14 @@
             setInterval(() => {
                 document.getElementById('liveUsers').textContent = 
                     (Math.floor(Math.random() * 20000) + 30000).toLocaleString();
-                document.getElementById('totalHashrate').textContent = 
-                    (Math.floor(Math.random() * 100) + 250).toFixed(1) + ' PH/s';
-                document.getElementById('totalMined').textContent = 
-                    (Math.floor(Math.random() * 5000) + 10000).toLocaleString() + ' BTC';
-                document.getElementById('activeRigs').textContent = 
-                    (Math.floor(Math.random() * 1000) + 7500).toLocaleString();
-                document.getElementById('dailyProfit').textContent = 
-                    '$' + (Math.floor(Math.random() * 100000) + 250000).toLocaleString();
+                document.getElementById('totalDeposit').textContent = 
+                    '₹' + (Math.floor(Math.random() * 50000) + 200000).toLocaleString();
+                document.getElementById('totalWithdrawal').textContent = 
+                    '₹' + (Math.floor(Math.random() * 40000) + 150000).toLocaleString();
+                document.getElementById('liveWinners').textContent = 
+                    (Math.floor(Math.random() * 1000) + 2500).toLocaleString();
+                document.getElementById('aiTrades').textContent = 
+                    (Math.floor(Math.random() * 500) + 1000).toLocaleString();
             }, 3000);
 
             // Update live transactions every 5 seconds
@@ -1424,31 +1416,31 @@
             container.innerHTML = shuffled.map(transaction => 
                 `<div class="flex items-center justify-between py-1 border-b border-white border-opacity-20 live-transaction">
                     <span class="text-xs">${transaction}</span>
-                    <span class="text-accent font-bold text-xs">Just now</span>
+                    <span class="text-mining font-bold text-xs">Just now</span>
                 </div>`
             ).join('');
         }
 
         // Update Mining Stats Randomly
         function updateMiningStats() {
-            // Active Miners
-            const activeCount = Math.floor(Math.random() * 500) + 1000;
-            const activeProfit = Math.floor(Math.random() * 200000) + 150000;
-            document.getElementById('activeMinersCount').textContent = activeCount.toLocaleString();
-            document.getElementById('activeMinersProfit').textContent = `+$${activeProfit.toLocaleString()} Profit`;
+            // Successful Mining
+            const successfulCount = Math.floor(Math.random() * 500) + 1000;
+            const successfulProfit = Math.floor(Math.random() * 200000) + 150000;
+            document.getElementById('successfulTradesCount').textContent = successfulCount.toLocaleString();
+            document.getElementById('successfulTradesProfit').textContent = `+₹${successfulProfit.toLocaleString()} Profit`;
             
-            // Network Hashrate
-            const hashrate = (Math.random() * 50 + 250).toFixed(1);
-            const hashrateProgress = (Math.random() * 20 + 5).toFixed(1);
-            document.getElementById('networkHashrate').textContent = `${hashrate} PH/s`;
-            document.getElementById('hashrateProgress').textContent = `+${hashrateProgress} PH/s Today`;
+            // Active Mining
+            const activeCount = Math.floor(Math.random() * 200) + 200;
+            const activeProgress = Math.floor(Math.random() * 100000) + 80000;
+            document.getElementById('activeTradesCount').textContent = activeCount.toLocaleString();
+            document.getElementById('activeTradesProgress').textContent = `₹${activeProgress.toLocaleString()} in Progress`;
             
             // Mining Efficiency
             const efficiency = (Math.random() * 15 + 80).toFixed(1);
-            const optimal = Math.floor(Math.random() * 50) + 130;
-            const total = Math.floor(optimal / (efficiency / 100));
-            document.getElementById('miningEfficiency').textContent = `${efficiency}%`;
-            document.getElementById('efficiencyRate').textContent = `${optimal}/${Math.round(total)} Rigs Optimal`;
+            const profitable = Math.floor(Math.random() * 50) + 130;
+            const total = Math.floor(profitable / (efficiency / 100));
+            document.getElementById('aiBotAccuracy').textContent = `${efficiency}%`;
+            document.getElementById('aiBotProfitable').textContent = `${profitable}/${Math.round(total)} Active`;
         }
 
         // New Feature: Particle Animation for Hero
@@ -1553,7 +1545,7 @@
         }
 
         // Mining Plan Functions
-        function selectMiningPlan(planId) {
+        function selectPlan(planId) {
             // Remove active class from all plans
             document.querySelectorAll('.plan-card').forEach(card => {
                 card.classList.remove('active-plan');
@@ -1596,21 +1588,22 @@
             // Deduct amount from USDT balance
             currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) - amount;
             
-            // Add to user's mining rigs
-            if (!currentUser.miningRigs) currentUser.miningRigs = [];
-            const miningRig = {
+            // Add to user's mining
+            if (!currentUser.mining) currentUser.mining = [];
+            const mining = {
                 id: Date.now(),
                 planId: planId,
                 amount: amount,
-                startTime: new Date().toLocaleString(),
+                currency: 'USDT',
+                date: new Date().toLocaleString(),
                 dailyReturn: calculateDailyReturn(planId, amount),
                 perSecondReturn: calculatePerSecondReturn(planId, amount),
-                totalMined: 0,
-                pendingMined: 0,
+                totalReturns: 0,
+                pendingReturns: 0,
                 active: true
             };
             
-            currentUser.miningRigs.push(miningRig);
+            currentUser.mining.push(mining);
             
             // Add transaction record
             if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
@@ -1619,17 +1612,17 @@
                 amount: amount,
                 currency: 'USDT',
                 date: new Date().toLocaleString(),
-                note: `Plan ${planId} mining rig`
+                note: `Plan ${planId} mining`
             });
             
-            // Start mining interval for this rig
-            startMiningInterval(miningRig.id);
+            // Start mining interval for this investment
+            startMiningInterval(mining.id);
             
             updateBalanceDisplay();
             saveUsersToCloud();
             
-            alert(`Successfully started mining with $${amount} in plan ${planId}! Mining rewards will be added every second.`);
-            loadActiveMiningRigs();
+            alert(`Successfully started mining with $${amount} in plan ${planId}! Mining returns will be added every second.`);
+            loadActiveMining();
         }
 
         function calculateDailyReturn(planId, amount) {
@@ -1646,103 +1639,111 @@
 
         function calculatePerSecondReturn(planId, amount) {
             const dailyReturn = calculateDailyReturn(planId, amount);
-            return dailyReturn / 86400; // 86400 seconds in a day
+            return dailyReturn / (24 * 60 * 60); // Divide by seconds in a day
         }
 
-        function startMiningInterval(rigId) {
-            // Add mining rewards every second
-            miningIntervals[rigId] = setInterval(() => {
-                if (currentUser && currentUser.miningRigs) {
-                    const rig = currentUser.miningRigs.find(r => r.id === rigId);
-                    if (rig && rig.active) {
-                        const perSecondReturn = rig.perSecondReturn;
-                        rig.pendingMined += perSecondReturn;
-                        rig.totalMined += perSecondReturn;
+        function startMiningInterval(miningId) {
+            // Add mining returns every second
+            miningIntervals[miningId] = setInterval(() => {
+                if (currentUser && currentUser.mining) {
+                    const mining = currentUser.mining.find(m => m.id === miningId);
+                    if (mining && mining.active) {
+                        const perSecondReturn = mining.perSecondReturn;
+                        mining.pendingReturns += perSecondReturn;
+                        mining.totalReturns += perSecondReturn;
                         
-                        updateActiveMiningRigsDisplay();
-                        saveUsersToCloud();
+                        // Update UI if on mining page
+                        if (document.getElementById('activeInvestments').innerHTML.includes(`mining-${miningId}`)) {
+                            loadActiveMining();
+                        }
                     }
                 }
             }, 1000); // 1 second
         }
 
-        function claimMiningRewards(rigId) {
-            if (currentUser && currentUser.miningRigs) {
-                const rig = currentUser.miningRigs.find(r => r.id === rigId);
-                if (rig && rig.pendingMined > 0) {
-                    currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) + rig.pendingMined;
+        function getMiningReturns(miningId) {
+            if (currentUser && currentUser.mining) {
+                const mining = currentUser.mining.find(m => m.id === miningId);
+                if (mining) {
+                    return mining.pendingReturns;
+                }
+            }
+            return 0;
+        }
+
+        function claimMiningReturns(miningId) {
+            if (currentUser && currentUser.mining) {
+                const mining = currentUser.mining.find(m => m.id === miningId);
+                if (mining && mining.pendingReturns > 0) {
+                    const returns = mining.pendingReturns;
+                    currentUser.balanceUSDT = (currentUser.balanceUSDT || 0) + returns;
+                    mining.pendingReturns = 0;
                     
                     // Add transaction record
                     if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
                     currentUser.transactionHistory.unshift({
-                        type: 'Mining Reward',
-                        amount: rig.pendingMined,
+                        type: 'Mining Returns',
+                        amount: returns,
                         currency: 'USDT',
                         date: new Date().toLocaleString(),
-                        note: `Mining reward from rig #${rigId}`
+                        note: `Mining returns from investment #${miningId}`
                     });
-                    
-                    rig.pendingMined = 0;
                     
                     updateBalanceDisplay();
                     saveUsersToCloud();
+                    loadActiveMining();
                     
-                    alert(`Successfully claimed mining rewards!`);
-                    loadActiveMiningRigs();
+                    alert(`Successfully claimed $${returns.toFixed(6)} mining returns!`);
                 } else {
-                    alert('No pending mining rewards to claim!');
+                    alert('No pending mining returns to claim.');
                 }
             }
         }
 
-        function loadActiveMiningRigs() {
-            const container = document.getElementById('activeMiningRigs');
-            if (currentUser && currentUser.miningRigs && currentUser.miningRigs.length > 0) {
-                const activeRigs = currentUser.miningRigs.filter(rig => rig.active);
+        function loadActiveMining() {
+            const container = document.getElementById('activeInvestments');
+            if (currentUser && currentUser.mining && currentUser.mining.length > 0) {
+                const activeMining = currentUser.mining.filter(m => m.active);
                 
-                if (activeRigs.length > 0) {
-                    container.innerHTML = activeRigs.map(rig => {
+                if (activeMining.length > 0) {
+                    container.innerHTML = activeMining.map(m => {
                         const planNames = {
-                            1: 'Basic Miner (0.1% daily)',
-                            2: 'Advanced Miner (0.2% daily)',
-                            3: 'Pro Miner (0.25% daily)',
-                            4: 'Enterprise Miner (0.5% daily)',
-                            5: 'VIP Mining Farm (1% daily)'
+                            1: 'Basic Mining (0.1% daily)',
+                            2: 'Silver Mining (0.2% daily)',
+                            3: 'Gold Mining (0.25% daily)',
+                            4: 'Platinum Mining (0.5% daily)',
+                            5: 'VIP Mining (1% daily)'
                         };
                         
+                        const pendingReturns = m.pendingReturns || 0;
+                        
                         return `
-                            <div class="p-4 bg-white dark:bg-secondary rounded-2xl border border-success-200 dark:border-success-800 mining-animation">
-                                <div class="flex justify-between items-center mb-2">
+                            <div class="p-4 bg-white dark:bg-gray-700 rounded-2xl border border-mining" id="mining-${m.id}">
+                                <div class="flex justify-between items-center">
                                     <div>
-                                        <p class="font-bold dark:text-white">${planNames[rig.planId]}</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Invested: $${rig.amount} | Started: ${rig.startTime}</p>
+                                        <p class="font-bold dark:text-white">${planNames[m.planId]}</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Invested: $${m.amount} | Started: ${m.date}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="text-success font-bold">+$${rig.perSecondReturn.toFixed(8)}/sec</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Pending: $${rig.pendingMined.toFixed(6)}</p>
+                                        <p class="text-mining font-bold">+$${m.perSecondReturn.toFixed(8)}/sec</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Pending: $${pendingReturns.toFixed(6)}</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Total: $${m.totalReturns.toFixed(6)}</p>
                                     </div>
                                 </div>
-                                <div class="mt-2 flex justify-between items-center">
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Total Mined: $${rig.totalMined.toFixed(6)}</p>
-                                    <button onclick="claimMiningRewards(${rig.id})" class="bg-success text-white px-4 py-1 rounded-lg text-sm font-bold hover:bg-green-600 transition">
-                                        Get Rewards
+                                <div class="mt-3 flex justify-end">
+                                    <button onclick="claimMiningReturns(${m.id})" class="bg-mining text-white px-4 py-2 rounded-lg font-bold hover:bg-yellow-600 transition">
+                                        <i class="fas fa-coins mr-1"></i> Get Returns
                                     </button>
                                 </div>
                             </div>
                         `;
                     }).join('');
                 } else {
-                    container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No active mining rigs yet. Choose a plan to start mining!</p>';
+                    container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No active mining yet. Choose a plan to start earning!</p>';
                 }
             } else {
-                container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No active mining rigs yet. Choose a plan to start mining!</p>';
+                container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No active mining yet. Choose a plan to start earning!</p>';
             }
-        }
-
-        function updateActiveMiningRigsDisplay() {
-            // This function would update the mining rigs display in real-time
-            // For now, we'll just reload the display
-            loadActiveMiningRigs();
         }
 
         // Exchange Currency Functions
@@ -1845,6 +1846,17 @@
                 document.getElementById('withdrawINRBtn').classList.remove('bg-gray-300', 'text-gray-700');
                 document.getElementById('withdrawUSDTBtn').classList.add('bg-gray-300', 'text-gray-700');
                 document.getElementById('withdrawUSDTBtn').classList.remove('bg-primary', 'text-white');
+                
+                // Check if user has saved bank details
+                if (currentUser && currentUser.bankDetails) {
+                    document.getElementById('bankDetailsForm').classList.add('hidden');
+                    document.getElementById('savedBankDetails').classList.remove('hidden');
+                    document.getElementById('savedBankInfo').textContent = 
+                        `${currentUser.bankDetails.bankName} - ${currentUser.bankDetails.accNumber}`;
+                } else {
+                    document.getElementById('bankDetailsForm').classList.remove('hidden');
+                    document.getElementById('savedBankDetails').classList.add('hidden');
+                }
             } else {
                 document.getElementById('inrWithdraw').classList.add('hidden');
                 document.getElementById('usdtWithdraw').classList.remove('hidden');
@@ -1855,8 +1867,9 @@
             }
         }
 
-        // Deposit Amount Selection
-        function setupDepositAmountButtons() {
+        // Deposit amount selection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners for deposit amount buttons
             document.querySelectorAll('.deposit-amount-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const amount = this.getAttribute('data-amount');
@@ -1864,109 +1877,16 @@
                     
                     // Highlight selected button
                     document.querySelectorAll('.deposit-amount-btn').forEach(btn => {
-                        btn.classList.remove('bg-accent', 'text-white');
-                        btn.classList.add('bg-gray-200', 'dark:bg-secondary');
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'dark:bg-gray-600');
                     });
-                    this.classList.add('bg-accent', 'text-white');
-                    this.classList.remove('bg-gray-200', 'dark:bg-secondary');
+                    this.classList.add('bg-primary', 'text-white');
+                    this.classList.remove('bg-gray-200', 'dark:bg-gray-600');
                 });
             });
-        }
+        });
 
-        // Deposit Submission Functions
-        function submitINRDeposit() {
-            const amount = document.getElementById('depositAmountINR').value;
-            const utr = document.getElementById('utrNumber').value;
-            
-            if (!amount || amount < 500) {
-                alert('Please enter a valid amount (min ₹500)');
-                return;
-            }
-            
-            if (!utr) {
-                alert('Please enter UTR number after payment');
-                return;
-            }
-            
-            // Create deposit request
-            const depositRequest = {
-                id: Date.now(),
-                userEmail: currentUser.email,
-                userName: currentUser.username,
-                amount: parseFloat(amount),
-                currency: 'INR',
-                utr: utr,
-                date: new Date().toLocaleString(),
-                status: 'pending'
-            };
-            
-            depositRequests.push(depositRequest);
-            saveDepositRequests();
-            
-            // Add transaction record
-            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
-            currentUser.transactionHistory.unshift({
-                type: 'Deposit Request',
-                amount: parseFloat(amount),
-                currency: 'INR',
-                date: new Date().toLocaleString(),
-                note: 'Pending approval',
-                status: 'pending'
-            });
-            
-            saveUsersToCloud();
-            
-            alert('Deposit request submitted successfully! It will be processed after admin approval.');
-            document.getElementById('depositAmountINR').value = '';
-            document.getElementById('utrNumber').value = '';
-            
-            // Reset amount buttons
-            document.querySelectorAll('.deposit-amount-btn').forEach(btn => {
-                btn.classList.remove('bg-accent', 'text-white');
-                btn.classList.add('bg-gray-200', 'dark:bg-secondary');
-            });
-        }
-
-        function submitUSDTDeposit() {
-            const amount = document.getElementById('depositAmountUSDT').value;
-            
-            if (!amount || amount < 10) {
-                alert('Please enter a valid amount (min 10 USDT)');
-                return;
-            }
-            
-            // Create deposit request
-            const depositRequest = {
-                id: Date.now(),
-                userEmail: currentUser.email,
-                userName: currentUser.username,
-                amount: parseFloat(amount),
-                currency: 'USDT',
-                date: new Date().toLocaleString(),
-                status: 'pending'
-            };
-            
-            depositRequests.push(depositRequest);
-            saveDepositRequests();
-            
-            // Add transaction record
-            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
-            currentUser.transactionHistory.unshift({
-                type: 'Deposit Request',
-                amount: parseFloat(amount),
-                currency: 'USDT',
-                date: new Date().toLocaleString(),
-                note: 'Pending approval',
-                status: 'pending'
-            });
-            
-            saveUsersToCloud();
-            
-            alert('Deposit request submitted successfully! It will be processed after admin approval.');
-            document.getElementById('depositAmountUSDT').value = '';
-        }
-
-        // Withdrawal Functions
+        // Save Bank Details
         function saveBankDetails() {
             const bankName = document.getElementById('bankName').value;
             const accHolderName = document.getElementById('accHolderName').value;
@@ -1978,20 +1898,122 @@
                 return;
             }
             
-            // Save bank details to user profile
+            if (!currentUser) return;
+            
             currentUser.bankDetails = {
                 bankName: bankName,
                 accHolderName: accHolderName,
                 accNumber: accNumber,
-                ifsc: ifsc
+                ifsc: ifsc,
+                savedAt: new Date().toLocaleString()
             };
             
             saveUsersToCloud();
             
+            document.getElementById('bankDetailsForm').classList.add('hidden');
+            document.getElementById('savedBankDetails').classList.remove('hidden');
+            document.getElementById('savedBankInfo').textContent = 
+                `${bankName} - ${accNumber}`;
+                
             alert('Bank details saved successfully!');
         }
 
-        function submitINRWithdrawal() {
+        // Submit INR Deposit
+        function submitINRDeposit() {
+            const amount = document.getElementById('depositAmountINR').value;
+            const utr = document.getElementById('depositUTR').value;
+            
+            if (!amount || amount < 500) {
+                alert('Please enter a valid amount (min ₹500)');
+                return;
+            }
+            
+            if (!utr) {
+                alert('Please enter UTR number');
+                return;
+            }
+            
+            if (!currentUser) return;
+            
+            // Create deposit request
+            if (!currentUser.depositRequests) currentUser.depositRequests = [];
+            const depositRequest = {
+                id: Date.now(),
+                amount: parseFloat(amount),
+                currency: 'INR',
+                utr: utr,
+                date: new Date().toLocaleString(),
+                status: 'pending'
+            };
+            
+            currentUser.depositRequests.push(depositRequest);
+            
+            // Add to transaction history
+            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
+            currentUser.transactionHistory.unshift({
+                type: 'Deposit Request',
+                amount: parseFloat(amount),
+                currency: 'INR',
+                date: new Date().toLocaleString(),
+                note: 'Pending approval'
+            });
+            
+            saveUsersToCloud();
+            
+            alert('Deposit request submitted successfully! It will be processed after admin approval.');
+            
+            // Clear form
+            document.getElementById('depositAmountINR').value = '';
+            document.getElementById('depositUTR').value = '';
+            document.querySelectorAll('.deposit-amount-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-gray-200', 'dark:bg-gray-600');
+            });
+        }
+
+        // Submit USDT Deposit
+        function submitUSDTDeposit() {
+            const amount = document.getElementById('depositAmountUSDT').value;
+            
+            if (!amount || amount < 10) {
+                alert('Please enter a valid amount (min 10 USDT)');
+                return;
+            }
+            
+            if (!currentUser) return;
+            
+            // Create deposit request
+            if (!currentUser.depositRequests) currentUser.depositRequests = [];
+            const depositRequest = {
+                id: Date.now(),
+                amount: parseFloat(amount),
+                currency: 'USDT',
+                date: new Date().toLocaleString(),
+                status: 'pending'
+            };
+            
+            currentUser.depositRequests.push(depositRequest);
+            
+            // Add to transaction history
+            if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
+            currentUser.transactionHistory.unshift({
+                type: 'Deposit Request',
+                amount: parseFloat(amount),
+                currency: 'USDT',
+                date: new Date().toLocaleString(),
+                note: 'Pending approval'
+            });
+            
+            saveUsersToCloud();
+            
+            alert('Deposit request submitted successfully! It will be processed after admin approval.');
+            
+            // Clear form
+            document.getElementById('depositAmountUSDT').value = '';
+        }
+
+        // Submit INR Withdrawal
+        function submitINRWithdraw() {
             const amount = document.getElementById('withdrawAmountINR').value;
             
             if (!amount || amount < 100) {
@@ -2009,11 +2031,12 @@
                 return;
             }
             
+            if (!currentUser) return;
+            
             // Create withdrawal request
+            if (!currentUser.withdrawalRequests) currentUser.withdrawalRequests = [];
             const withdrawalRequest = {
                 id: Date.now(),
-                userEmail: currentUser.email,
-                userName: currentUser.username,
                 amount: parseFloat(amount),
                 currency: 'INR',
                 bankDetails: currentUser.bankDetails,
@@ -2021,30 +2044,31 @@
                 status: 'pending'
             };
             
-            withdrawalRequests.push(withdrawalRequest);
-            saveWithdrawalRequests();
+            currentUser.withdrawalRequests.push(withdrawalRequest);
             
-            // Add transaction record
+            // Add to transaction history
             if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
             currentUser.transactionHistory.unshift({
                 type: 'Withdrawal Request',
                 amount: parseFloat(amount),
                 currency: 'INR',
                 date: new Date().toLocaleString(),
-                note: 'Pending approval',
-                status: 'pending'
+                note: 'Pending approval'
             });
             
             saveUsersToCloud();
             
-            alert('Withdrawal request submitted successfully! It will be processed within 24 hours.');
+            alert('Withdrawal request submitted successfully! It will be processed after admin approval.');
+            
+            // Clear form
             document.getElementById('withdrawAmountINR').value = '';
         }
 
-        function submitUSDTWithdrawal() {
+        // Submit USDT Withdrawal
+        function submitUSDTWithdraw() {
             const amount = document.getElementById('withdrawAmountUSDT').value;
-            const address = document.getElementById('usdtAddress').value;
-            const network = document.getElementById('usdtNetwork').value;
+            const usdtAddress = document.getElementById('usdtAddress').value;
+            const usdtNetwork = document.getElementById('usdtNetwork').value;
             
             if (!amount || amount < 10) {
                 alert('Minimum 10 USDT');
@@ -2056,271 +2080,44 @@
                 return;
             }
             
-            if (!address) {
+            if (!usdtAddress) {
                 alert('Enter USDT address');
                 return;
             }
             
+            if (!currentUser) return;
+            
             // Create withdrawal request
+            if (!currentUser.withdrawalRequests) currentUser.withdrawalRequests = [];
             const withdrawalRequest = {
                 id: Date.now(),
-                userEmail: currentUser.email,
-                userName: currentUser.username,
                 amount: parseFloat(amount),
                 currency: 'USDT',
-                address: address,
-                network: network,
+                usdtAddress: usdtAddress,
+                usdtNetwork: usdtNetwork,
                 date: new Date().toLocaleString(),
                 status: 'pending'
             };
             
-            withdrawalRequests.push(withdrawalRequest);
-            saveWithdrawalRequests();
+            currentUser.withdrawalRequests.push(withdrawalRequest);
             
-            // Add transaction record
+            // Add to transaction history
             if (!currentUser.transactionHistory) currentUser.transactionHistory = [];
             currentUser.transactionHistory.unshift({
                 type: 'Withdrawal Request',
                 amount: parseFloat(amount),
                 currency: 'USDT',
                 date: new Date().toLocaleString(),
-                note: 'Pending approval',
-                status: 'pending'
+                note: 'Pending approval'
             });
             
             saveUsersToCloud();
             
-            alert('Withdrawal request submitted successfully! It will be processed within 24 hours.');
+            alert('Withdrawal request submitted successfully! It will be processed after admin approval.');
+            
+            // Clear form
             document.getElementById('withdrawAmountUSDT').value = '';
             document.getElementById('usdtAddress').value = '';
-        }
-
-        // Admin Functions for Deposit/Withdrawal Approval
-        function loadAdminDepositRequests() {
-            const container = document.getElementById('adminDepositRequests');
-            if (depositRequests.length > 0) {
-                container.innerHTML = depositRequests.map(request => {
-                    const statusClass = request.status === 'approved' ? 'status-approved' : 
-                                      request.status === 'rejected' ? 'status-rejected' : 'status-pending';
-                    
-                    return `
-                        <div class="p-4 bg-white dark:bg-secondary rounded-xl border">
-                            <div class="flex justify-between items-center mb-2">
-                                <div>
-                                    <p class="font-bold dark:text-white">${request.userName} (${request.userEmail})</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Amount: ${request.currency === 'INR' ? '₹' : '$'}${request.amount} | Date: ${request.date}</p>
-                                    ${request.utr ? `<p class="text-sm text-gray-600 dark:text-gray-400">UTR: ${request.utr}</p>` : ''}
-                                </div>
-                                <div class="text-right">
-                                    <p class="${statusClass}">${request.status.toUpperCase()}</p>
-                                    ${request.status === 'pending' ? `
-                                        <div class="flex space-x-2 mt-2">
-                                            <button onclick="approveDeposit(${request.id})" class="bg-success text-white px-3 py-1 rounded text-sm">Approve</button>
-                                            <button onclick="rejectDeposit(${request.id})" class="bg-danger text-white px-3 py-1 rounded text-sm">Reject</button>
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            } else {
-                container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No deposit requests yet</p>';
-            }
-        }
-
-        function loadAdminWithdrawalRequests() {
-            const container = document.getElementById('adminWithdrawalRequests');
-            if (withdrawalRequests.length > 0) {
-                container.innerHTML = withdrawalRequests.map(request => {
-                    const statusClass = request.status === 'approved' ? 'status-approved' : 
-                                      request.status === 'rejected' ? 'status-rejected' : 'status-pending';
-                    
-                    return `
-                        <div class="p-4 bg-white dark:bg-secondary rounded-xl border">
-                            <div class="flex justify-between items-center mb-2">
-                                <div>
-                                    <p class="font-bold dark:text-white">${request.userName} (${request.userEmail})</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Amount: ${request.currency === 'INR' ? '₹' : '$'}${request.amount} | Date: ${request.date}</p>
-                                    ${request.bankDetails ? `
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Bank: ${request.bankDetails.bankName} | A/C: ${request.bankDetails.accNumber}</p>
-                                    ` : ''}
-                                    ${request.address ? `
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Address: ${request.address} | Network: ${request.network}</p>
-                                    ` : ''}
-                                </div>
-                                <div class="text-right">
-                                    <p class="${statusClass}">${request.status.toUpperCase()}</p>
-                                    ${request.status === 'pending' ? `
-                                        <div class="flex space-x-2 mt-2">
-                                            <button onclick="approveWithdrawal(${request.id})" class="bg-success text-white px-3 py-1 rounded text-sm">Approve</button>
-                                            <button onclick="rejectWithdrawal(${request.id})" class="bg-danger text-white px-3 py-1 rounded text-sm">Reject</button>
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            } else {
-                container.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No withdrawal requests yet</p>';
-            }
-        }
-
-        function approveDeposit(requestId) {
-            const request = depositRequests.find(r => r.id === requestId);
-            if (request) {
-                request.status = 'approved';
-                
-                // Find user and add funds
-                const user = users.find(u => u.email === request.userEmail);
-                if (user) {
-                    if (request.currency === 'INR') {
-                        user.balanceINR = (user.balanceINR || 0) + request.amount;
-                    } else {
-                        user.balanceUSDT = (user.balanceUSDT || 0) + request.amount;
-                    }
-                    
-                    // Update transaction history
-                    if (!user.transactionHistory) user.transactionHistory = [];
-                    user.transactionHistory.unshift({
-                        type: 'Deposit Approved',
-                        amount: request.amount,
-                        currency: request.currency,
-                        date: new Date().toLocaleString(),
-                        note: 'Deposit approved by admin',
-                        status: 'approved'
-                    });
-                }
-                
-                saveDepositRequests();
-                saveUsersToCloud();
-                
-                alert('Deposit approved successfully!');
-                loadAdminDepositRequests();
-            }
-        }
-
-        function rejectDeposit(requestId) {
-            const reason = prompt('Enter reason for rejection:');
-            if (reason === null) return;
-            
-            const request = depositRequests.find(r => r.id === requestId);
-            if (request) {
-                request.status = 'rejected';
-                request.rejectionReason = reason;
-                
-                // Update user transaction history
-                const user = users.find(u => u.email === request.userEmail);
-                if (user && user.transactionHistory) {
-                    const transaction = user.transactionHistory.find(t => 
-                        t.type === 'Deposit Request' && t.amount === request.amount && t.date === request.date);
-                    if (transaction) {
-                        transaction.status = 'rejected';
-                        transaction.note = `Rejected: ${reason}`;
-                    }
-                }
-                
-                saveDepositRequests();
-                saveUsersToCloud();
-                
-                alert('Deposit rejected successfully!');
-                loadAdminDepositRequests();
-            }
-        }
-
-        function approveWithdrawal(requestId) {
-            const request = withdrawalRequests.find(r => r.id === requestId);
-            if (request) {
-                request.status = 'approved';
-                
-                // Find user and deduct funds
-                const user = users.find(u => u.email === request.userEmail);
-                if (user) {
-                    if (request.currency === 'INR') {
-                        user.balanceINR = (user.balanceINR || 0) - request.amount;
-                    } else {
-                        user.balanceUSDT = (user.balanceUSDT || 0) - request.amount;
-                    }
-                    
-                    // Update transaction history
-                    if (!user.transactionHistory) user.transactionHistory = [];
-                    user.transactionHistory.unshift({
-                        type: 'Withdrawal Approved',
-                        amount: request.amount,
-                        currency: request.currency,
-                        date: new Date().toLocaleString(),
-                        note: 'Withdrawal approved by admin',
-                        status: 'approved'
-                    });
-                    
-                    // Add to withdrawals history
-                    if (!user.withdrawals) user.withdrawals = [];
-                    user.withdrawals.push({
-                        amount: request.amount,
-                        currency: request.currency,
-                        date: new Date().toLocaleString(),
-                        status: 'completed'
-                    });
-                }
-                
-                saveWithdrawalRequests();
-                saveUsersToCloud();
-                
-                alert('Withdrawal approved successfully!');
-                loadAdminWithdrawalRequests();
-            }
-        }
-
-        function rejectWithdrawal(requestId) {
-            const reason = prompt('Enter reason for rejection:');
-            if (reason === null) return;
-            
-            const request = withdrawalRequests.find(r => r.id === requestId);
-            if (request) {
-                request.status = 'rejected';
-                request.rejectionReason = reason;
-                
-                // Update user transaction history
-                const user = users.find(u => u.email === request.userEmail);
-                if (user && user.transactionHistory) {
-                    const transaction = user.transactionHistory.find(t => 
-                        t.type === 'Withdrawal Request' && t.amount === request.amount && t.date === request.date);
-                    if (transaction) {
-                        transaction.status = 'rejected';
-                        transaction.note = `Rejected: ${reason}`;
-                    }
-                }
-                
-                saveWithdrawalRequests();
-                saveUsersToCloud();
-                
-                alert('Withdrawal rejected successfully!');
-                loadAdminWithdrawalRequests();
-            }
-        }
-
-        // Save deposit and withdrawal requests to localStorage
-        function saveDepositRequests() {
-            localStorage.setItem('depositRequests', JSON.stringify(depositRequests));
-        }
-
-        function saveWithdrawalRequests() {
-            localStorage.setItem('withdrawalRequests', JSON.stringify(withdrawalRequests));
-        }
-
-        function loadDepositRequests() {
-            const saved = localStorage.getItem('depositRequests');
-            if (saved) {
-                depositRequests = JSON.parse(saved);
-            }
-        }
-
-        function loadWithdrawalRequests() {
-            const saved = localStorage.getItem('withdrawalRequests');
-            if (saved) {
-                withdrawalRequests = JSON.parse(saved);
-            }
         }
 
         // FIXED REFERRAL SYSTEM - Only Code, No Link
@@ -2372,14 +2169,14 @@
                     const totalCommission = referralTotals[ref.username] || 0;
                     const userHistory = commissionByUser[ref.username] || [];
                     return `
-                        <div class="p-4 bg-white dark:bg-secondary rounded-lg border">
+                        <div class="p-4 bg-white dark:bg-gray-600 rounded-lg border">
                             <div class="flex justify-between items-center mb-2">
                                 <div>
                                     <p class="font-bold dark:text-white">${ref.username}</p>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">Joined: ${ref.joinDate}</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-success font-bold">+₹${totalCommission}</p>
+                                    <p class="text-green-600 font-bold">+₹${totalCommission}</p>
                                     <p class="text-xs text-gray-600 dark:text-gray-400">Total Commission</p>
                                 </div>
                             </div>
@@ -2432,8 +2229,7 @@
                 showSection('admin');
                 updateTotalUsers();
                 loadAdminUsers();
-                loadAdminDepositRequests();
-                loadAdminWithdrawalRequests();
+                loadAdminRequests();
                 alert('Admin login successful!');
             } else {
                 alert('Invalid admin credentials');
@@ -2493,7 +2289,9 @@
                 totalWithdrawals: 0,
                 commissionHistory: [],
                 transactionHistory: [],
-                miningRigs: []
+                mining: [],
+                depositRequests: [],
+                withdrawalRequests: []
             };
             users.push(user);
             
@@ -2679,7 +2477,7 @@
             document.getElementById('userUID').textContent = user.uid;
             updateBalanceDisplay(); // Ensure balance updates on login/refresh
             updateLastSeen();
-            loadActiveMiningRigs();
+            loadActiveMining();
         }
 
         // Initialize cloud database
@@ -2747,9 +2545,8 @@
             
             if (section === 'admin' && isAdmin) { 
                 updateTotalUsers(); 
-                loadAdminUsers();
-                loadAdminDepositRequests();
-                loadAdminWithdrawalRequests();
+                loadAdminUsers(); 
+                loadAdminRequests();
             }
             if (section === 'profile') {
                 loadProfileData();
@@ -2760,8 +2557,8 @@
             if (section === 'referral') {
                 loadReferralSection();
             }
-            if (section === 'mining') {
-                loadActiveMiningRigs();
+            if (section === 'staking') {
+                loadActiveMining();
             }
             if (section === 'exchange') {
                 // Update exchange calculations
@@ -2779,7 +2576,6 @@
             }
             if (section === 'deposit') {
                 showDepositMethod('INR'); // Default to INR
-                setupDepositAmountButtons();
             }
             if (section === 'withdraw') {
                 showWithdrawMethod('INR'); // Default to INR
@@ -2799,9 +2595,10 @@
                 document.getElementById('profileLastSeen').textContent = currentUser.lastSeen;
                 document.getElementById('profileBalanceINR').textContent = (currentUser.balanceINR || 0).toFixed(2);
                 document.getElementById('profileBalanceUSDT').textContent = (currentUser.balanceUSDT || 0).toFixed(2);
-                document.getElementById('profileMiningRigs').textContent = currentUser.miningRigs ? currentUser.miningRigs.length : 0;
-                document.getElementById('profileMiningProfit').textContent = currentUser.totalWinnings || 0;
+                document.getElementById('profileInvestments').textContent = currentUser.mining ? currentUser.mining.length : 0;
+                document.getElementById('profileProfits').textContent = currentUser.totalWinnings || 0;
                 document.getElementById('profileWithdrawals').textContent = currentUser.totalWithdrawals || 0;
+                document.getElementById('profileAITrades').textContent = currentUser.mining && currentUser.mining.length > 0 ? currentUser.mining.length : 0;
                 document.getElementById('profileReferralEarnings').textContent = currentUser.referralEarnings || 0;
             }
         }
@@ -2813,35 +2610,443 @@
         // Load History Data
         function loadHistoryData() {
             const transactionHistory = document.getElementById('transactionHistory');
-            const miningHistory = document.getElementById('miningHistory');
+            const investmentHistory = document.getElementById('investmentHistory');
             const withdrawalHistory = document.getElementById('withdrawalHistory');
             
             if (currentUser) {
                 // Transaction History
                 if (currentUser.transactionHistory && currentUser.transactionHistory.length > 0) {
-                    transactionHistory.innerHTML = currentUser.transactionHistory.slice(0, 10).map(transaction => {
-                        const statusClass = transaction.status === 'approved' ? 'status-approved' : 
-                                          transaction.status === 'rejected' ? 'status-rejected' : 
-                                          transaction.status === 'pending' ? 'status-pending' : '';
-                        
-                        return `
-                            <div class="p-3 bg-white dark:bg-secondary rounded-lg border">
-                                <p class="dark:text-white"><strong>${transaction.type}</strong> - ${transaction.currency === 'INR' ? '₹' : '$'}${transaction.amount || 0}</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">${transaction.date}</p>
-                                ${transaction.note ? `<p class="text-xs text-gray-500">${transaction.note}</p>` : ''}
-                                ${statusClass ? `<p class="text-xs ${statusClass}">${transaction.status.toUpperCase()}</p>` : ''}
-                            </div>
-                        `;
-                    }).join('');
+                    transactionHistory.innerHTML = currentUser.transactionHistory.slice(0, 10).map(transaction => 
+                        `<div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
+                            <p class="dark:text-white"><strong>${transaction.type}</strong> - ${transaction.currency === 'INR' ? '₹' : '$'}${transaction.amount || 0}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">${transaction.date}</p>
+                            ${transaction.note ? `<p class="text-xs text-gray-500">${transaction.note}</p>` : ''}
+                        </div>`
+                    ).join('');
                 } else {
                     transactionHistory.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No transactions yet</p>';
                 }
 
-                // Mining History
-                if (currentUser.miningRigs && currentUser.miningRigs.length > 0) {
-                    miningHistory.innerHTML = currentUser.miningRigs.map(rig => {
+                // Investment History
+                if (currentUser.mining && currentUser.mining.length > 0) {
+                    investmentHistory.innerHTML = currentUser.mining.map(mining => {
                         const planNames = {
-                            1: 'Basic Miner',
-                            2: 'Advanced Miner',
-                            3: 'Pro Miner',
-                            
+                            1: 'Basic Mining',
+                            2: 'Silver Mining',
+                            3: 'Gold Mining',
+                            4: 'Platinum Mining',
+                            5: 'VIP Mining'
+                        };
+                        
+                        return `
+                            <div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
+                                <p class="dark:text-white"><strong>${planNames[mining.planId]}</strong> - $${mining.amount}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">${mining.date}</p>
+                                <p class="text-sm ${mining.active ? 'text-green-600' : 'text-gray-600'}">${mining.active ? 'Active' : 'Completed'}</p>
+                                ${mining.totalReturns > 0 ? `<p class="text-sm text-green-600">Returns: $${mining.totalReturns.toFixed(6)}</p>` : ''}
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    investmentHistory.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No mining yet</p>';
+                }
+
+                // Withdrawal History
+                if (currentUser.withdrawals && currentUser.withdrawals.length > 0) {
+                    withdrawalHistory.innerHTML = currentUser.withdrawals.map(withdrawal => 
+                        `<div class="p-3 bg-white dark:bg-gray-600 rounded-lg border">
+                            <p class="dark:text-white"><strong>Withdrawal:</strong> ${withdrawal.currency === 'INR' ? '₹' : '$'}${withdrawal.amount}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">${withdrawal.date} - ${withdrawal.status || 'Pending'}</p>
+                        </div>`
+                    ).join('');
+                } else {
+                    withdrawalHistory.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">No withdrawals yet</p>';
+                }
+            }
+        }
+
+        // Daily Login Bonus
+        function claimDailyBonus() {
+            if (!currentUser) return;
+
+            const today = new Date().toDateString();
+            const lastBonusDate = localStorage.getItem(`lastBonus_${currentUser.email}`);
+
+            if (lastBonusDate === today) {
+                alert('You have already claimed your daily bonus today!');
+                return;
+            }
+
+            const bonusAmount = Math.floor(Math.random() * 5) + 1; // ₹1 to ₹5
+            currentUser.balanceINR = (currentUser.balanceINR || 0) + bonusAmount;
+            updateBalanceDisplay();
+
+            localStorage.setItem(`lastBonus_${currentUser.email}`, today);
+            alert(`🎉 Daily bonus claimed! You received ₹${bonusAmount}`);
+            saveUsersToCloud();
+        }
+
+        // Admin Panel Functions
+        function updateTotalUsers() {
+            document.getElementById('totalUsers').textContent = users.length;
+        }
+
+        function loadAdminUsers() {
+            const container = document.getElementById('adminUserList');
+            container.innerHTML = '';
+            
+            if (users.length === 0) {
+                container.innerHTML = '<p class="text-center p-4 dark:text-white">No users registered yet</p>';
+                return;
+            }
+            
+            users.forEach(user => {
+                const div = document.createElement('div');
+                div.className = 'p-4 border rounded-xl bg-gray-50 dark:bg-gray-700';
+                div.innerHTML = `
+                    <p class="dark:text-white"><strong>${user.username}</strong> (${user.email})</p>
+                    <p class="dark:text-gray-300">Phone: ${user.phone} | UID: ${user.uid}</p>
+                    <p class="dark:text-gray-300">INR: ₹${user.balanceINR || 0} | USDT: $${user.balanceUSDT || 0}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Joined: ${user.joinDate}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Winnings: ₹${user.totalWinnings || 0} | Withdrawals: ₹${user.totalWithdrawals || 0}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Referrals: ${user.totalReferrals || 0} | Ref Earnings: ₹${user.referralEarnings || 0}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Mining Rigs: ${user.mining ? user.mining.length : 0}</p>
+                    <div class="flex gap-2 mt-2">
+                        <input type="number" placeholder="Amount" class="p-2 border rounded w-24 dark:bg-gray-600 dark:text-white" min="1">
+                        <button onclick="addFund('${user.email}', this.previousElementSibling.value)" class="bg-green-500 text-white px-3 py-1 rounded text-sm">Add</button>
+                        <button onclick="deductFund('${user.email}', this.parentElement.querySelector('input').value)" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Deduct</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Load Admin Requests
+        function loadAdminRequests() {
+            loadAdminDepositRequests();
+            loadAdminWithdrawalRequests();
+        }
+
+        function loadAdminDepositRequests() {
+            const container = document.getElementById('adminDepositRequests');
+            container.innerHTML = '';
+            
+            let hasRequests = false;
+            
+            users.forEach(user => {
+                if (user.depositRequests && user.depositRequests.length > 0) {
+                    user.depositRequests.forEach(request => {
+                        if (request.status === 'pending') {
+                            hasRequests = true;
+                            const div = document.createElement('div');
+                            div.className = 'p-4 border rounded-xl bg-white dark:bg-gray-600';
+                            div.innerHTML = `
+                                <p class="dark:text-white"><strong>${user.username}</strong> (${user.email})</p>
+                                <p class="dark:text-gray-300">Amount: ${request.currency === 'INR' ? '₹' : '$'}${request.amount}</p>
+                                <p class="dark:text-gray-300">Date: ${request.date}</p>
+                                ${request.utr ? `<p class="dark:text-gray-300">UTR: ${request.utr}</p>` : ''}
+                                <div class="flex gap-2 mt-2">
+                                    <button onclick="approveDeposit('${user.email}', ${request.id})" class="bg-green-500 text-white px-3 py-1 rounded text-sm">Approve</button>
+                                    <button onclick="rejectDeposit('${user.email}', ${request.id})" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Reject</button>
+                                </div>
+                            `;
+                            container.appendChild(div);
+                        }
+                    });
+                }
+            });
+            
+            if (!hasRequests) {
+                container.innerHTML = '<p class="text-center p-4 dark:text-white">No pending deposit requests</p>';
+            }
+        }
+
+        function loadAdminWithdrawalRequests() {
+            const container = document.getElementById('adminWithdrawalRequests');
+            container.innerHTML = '';
+            
+            let hasRequests = false;
+            
+            users.forEach(user => {
+                if (user.withdrawalRequests && user.withdrawalRequests.length > 0) {
+                    user.withdrawalRequests.forEach(request => {
+                        if (request.status === 'pending') {
+                            hasRequests = true;
+                            const div = document.createElement('div');
+                            div.className = 'p-4 border rounded-xl bg-white dark:bg-gray-600';
+                            div.innerHTML = `
+                                <p class="dark:text-white"><strong>${user.username}</strong> (${user.email})</p>
+                                <p class="dark:text-gray-300">Amount: ${request.currency === 'INR' ? '₹' : '$'}${request.amount}</p>
+                                <p class="dark:text-gray-300">Date: ${request.date}</p>
+                                ${request.bankDetails ? `<p class="dark:text-gray-300">Bank: ${request.bankDetails.bankName} - ${request.bankDetails.accNumber}</p>` : ''}
+                                ${request.usdtAddress ? `<p class="dark:text-gray-300">USDT: ${request.usdtAddress} (${request.usdtNetwork})</p>` : ''}
+                                <div class="flex gap-2 mt-2">
+                                    <button onclick="approveWithdrawal('${user.email}', ${request.id})" class="bg-green-500 text-white px-3 py-1 rounded text-sm">Approve</button>
+                                    <button onclick="rejectWithdrawal('${user.email}', ${request.id})" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Reject</button>
+                                </div>
+                            `;
+                            container.appendChild(div);
+                        }
+                    });
+                }
+            });
+            
+            if (!hasRequests) {
+                container.innerHTML = '<p class="text-center p-4 dark:text-white">No pending withdrawal requests</p>';
+            }
+        }
+
+        // Approve Deposit
+        function approveDeposit(userEmail, requestId) {
+            const user = users.find(u => u.email === userEmail);
+            if (!user) return;
+            
+            const request = user.depositRequests.find(r => r.id === requestId);
+            if (!request) return;
+            
+            // Update request status
+            request.status = 'approved';
+            request.approvedAt = new Date().toLocaleString();
+            
+            // Add funds to user balance
+            if (request.currency === 'INR') {
+                user.balanceINR = (user.balanceINR || 0) + request.amount;
+            } else {
+                user.balanceUSDT = (user.balanceUSDT || 0) + request.amount;
+            }
+            
+            // Add referral commission
+            addReferralCommission(user, request.amount, request.currency);
+            
+            // Update transaction history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Deposit Approved',
+                amount: request.amount,
+                currency: request.currency,
+                date: new Date().toLocaleString(),
+                note: 'Deposit successfully processed'
+            });
+            
+            saveUsersToCloud();
+            alert('Deposit approved successfully!');
+            loadAdminRequests();
+        }
+
+        // Reject Deposit
+        function rejectDeposit(userEmail, requestId) {
+            const reason = prompt('Enter reason for rejection:');
+            if (!reason) return;
+            
+            const user = users.find(u => u.email === userEmail);
+            if (!user) return;
+            
+            const request = user.depositRequests.find(r => r.id === requestId);
+            if (!request) return;
+            
+            // Update request status
+            request.status = 'rejected';
+            request.rejectedAt = new Date().toLocaleString();
+            request.rejectionReason = reason;
+            
+            // Update transaction history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Deposit Rejected',
+                amount: request.amount,
+                currency: request.currency,
+                date: new Date().toLocaleString(),
+                note: `Rejected: ${reason}`
+            });
+            
+            saveUsersToCloud();
+            alert('Deposit rejected successfully!');
+            loadAdminRequests();
+        }
+
+        // Approve Withdrawal
+        function approveWithdrawal(userEmail, requestId) {
+            const user = users.find(u => u.email === userEmail);
+            if (!user) return;
+            
+            const request = user.withdrawalRequests.find(r => r.id === requestId);
+            if (!request) return;
+            
+            // Check if user has sufficient balance
+            if (request.currency === 'INR' && (user.balanceINR || 0) < request.amount) {
+                alert('User has insufficient INR balance!');
+                return;
+            }
+            
+            if (request.currency === 'USDT' && (user.balanceUSDT || 0) < request.amount) {
+                alert('User has insufficient USDT balance!');
+                return;
+            }
+            
+            // Update request status
+            request.status = 'approved';
+            request.approvedAt = new Date().toLocaleString();
+            
+            // Deduct funds from user balance
+            if (request.currency === 'INR') {
+                user.balanceINR = (user.balanceINR || 0) - request.amount;
+            } else {
+                user.balanceUSDT = (user.balanceUSDT || 0) - request.amount;
+            }
+            
+            // Add to withdrawals history
+            if (!user.withdrawals) user.withdrawals = [];
+            user.withdrawals.unshift({
+                amount: request.amount,
+                currency: request.currency,
+                date: new Date().toLocaleString(),
+                status: 'completed'
+            });
+            
+            // Update transaction history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Withdrawal Approved',
+                amount: request.amount,
+                currency: request.currency,
+                date: new Date().toLocaleString(),
+                note: 'Withdrawal successfully processed'
+            });
+            
+            saveUsersToCloud();
+            alert('Withdrawal approved successfully!');
+            loadAdminRequests();
+        }
+
+        // Reject Withdrawal
+        function rejectWithdrawal(userEmail, requestId) {
+            const reason = prompt('Enter reason for rejection:');
+            if (!reason) return;
+            
+            const user = users.find(u => u.email === userEmail);
+            if (!user) return;
+            
+            const request = user.withdrawalRequests.find(r => r.id === requestId);
+            if (!request) return;
+            
+            // Update request status
+            request.status = 'rejected';
+            request.rejectedAt = new Date().toLocaleString();
+            request.rejectionReason = reason;
+            
+            // Update transaction history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Withdrawal Rejected',
+                amount: request.amount,
+                currency: request.currency,
+                date: new Date().toLocaleString(),
+                note: `Rejected: ${reason}`
+            });
+            
+            saveUsersToCloud();
+            alert('Withdrawal rejected successfully!');
+            loadAdminRequests();
+        }
+
+        async function addFundToUser() {
+            const email = document.getElementById('adminUserEmail').value.trim().toLowerCase();
+            const amount = parseFloat(document.getElementById('adminFundAmount').value);
+            if (!email || !amount) return alert('Enter email and amount');
+            await addFund(email, amount);
+        }
+
+        async function deductFundFromUser() {
+            const email = document.getElementById('adminUserEmailDeduct').value.trim().toLowerCase();
+            const amount = parseFloat(document.getElementById('adminDeductAmount').value);
+            if (!email || !amount) return alert('Enter email and amount');
+            await deductFund(email, amount);
+        }
+
+        async function addFund(email, amountStr) {
+            const amt = parseFloat(amountStr);
+            if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!user) return alert('User not found! Check email spelling.');
+            user.balanceINR = (user.balanceINR || 0) + amt;
+            user.totalDeposits = (user.totalDeposits || 0) + amt;
+            
+            // Add referral commission if applicable
+            addReferralCommission(user, amt, 'INR');
+            
+            // Add transaction to user history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Bonus Received Successfully',
+                amount: amt,
+                currency: 'INR',
+                date: new Date().toLocaleString()
+            });
+            
+            await saveUsersToCloud();
+            alert(`₹${amt} added to ${user.username}. New balance: ₹${user.balanceINR}`);
+            loadAdminUsers();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalanceDisplay();
+        }
+
+        async function deductFund(email, amountStr) {
+            const amt = parseFloat(amountStr);
+            if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!user) return alert('User not found! Check email spelling.');
+            if ((user.balanceINR || 0) < amt) return alert(`Insufficient balance. User has only ₹${user.balanceINR}`);
+            user.balanceINR = (user.balanceINR || 0) - amt;
+            
+            // Add transaction to user history
+            if (!user.transactionHistory) user.transactionHistory = [];
+            user.transactionHistory.unshift({
+                type: 'Admin Deducted Funds',
+                amount: amt,
+                currency: 'INR',
+                date: new Date().toLocaleString()
+            });
+            
+            await saveUsersToCloud();
+            alert(`₹${amt} deducted from ${user.username}. New balance: ₹${user.balanceINR}`);
+            loadAdminUsers();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalanceDisplay();
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('adminLoggedIn');
+            isAdmin = false;
+            location.reload();
+        }
+
+        // Initialize everything
+        window.onload = async () => {
+            await initializeDatabase();
+            initializeLiveStats(); // Start live stats
+            createParticles(); // New: Particles
+            checkReferral(); // Check for referral codes
+            
+            // Load language preference
+            currentLanguage = localStorage.getItem('language') || 'english';
+            updateLanguage();
+
+            const saved = localStorage.getItem('currentUser');
+            if (saved) {
+                const user = JSON.parse(saved);
+                const found = users.find(u => u.email === user.email);
+                if (found) {
+                    loginSuccess(found);
+                }
+            }
+            if (localStorage.getItem('adminLoggedIn') === 'true') isAdmin = true;
+
+            // Event listeners
+            document.getElementById('languageToggle').addEventListener('click', toggleLanguage);
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) document.getElementById('menuDropdown').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
